@@ -4,6 +4,9 @@ import formatTimestamp from "./format-timestamp";
 import styles from "./styles";
 
 import Cap from "./Cap";
+import EventFooter from "./EventFooter";
+import EventHeader from "./EventHeader";
+import EventImage from "./EventImage";
 import Metadata from "./Metadata";
 import Points from "./Points";
 import RSVPsPreview from "./RSVPsPreview";
@@ -32,27 +35,25 @@ const Event = ({
 
   return (
     <div className={styles.event}>
-      <div className={styles.eventHeader}>
-        <div className={styles.eventLeft}>
-          <a style={{ backgroundImage: `url(${mediumUrl})` }} href={eventUrl}>
-            <Points sponsored={sponsored} survey={survey} />
-            <span className={styles.eventName}>{name}</span>
-          </a>
-        </div>
-        <Metadata
-          cancelledAt={cancelledAt}
-          startsAt={startsAt}
-          endsAt={endsAt}
-          location={location}
-          host={host}
-          acceptedCount={acceptedCount}
-          cap={cap}
-        />
-      </div>
-      <div className={styles.eventFooter}>
-        <a className={styles.moreInfo} href={eventUrl}>More Info</a>
-        <RSVPsPreview acceptedCount={acceptedCount} rsvpPreview={rsvpPreview} />
-      </div>
+      <EventHeader
+        mediumUrl={mediumUrl}
+        id={id}
+        sponsored={sponsored}
+        survey={survey}
+        name={name}
+        cancelledAt={cancelledAt}
+        startsAt={startsAt}
+        endsAt={endsAt}
+        location={location}
+        host={host}
+        acceptedCount={acceptedCount}
+        cap={cap}
+      />
+      <EventFooter
+        id={id}
+        acceptedCount={acceptedCount}
+        rsvpPreview={rsvpPreview}
+      />
     </div>
   );
 };
