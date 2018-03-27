@@ -3,17 +3,15 @@ import React from "react";
 import styles from "../styles";
 import Points from "./Points";
 
-import { PLATFORM_ROOT } from "../config";
-
 const EventImage = ({
   event: {
-    id, image: { mediumUrl }, sponsored, survey, name
+    image: { mediumUrl }, sponsored, survey, name, href
   }
 }) => (
   <div className={styles.eventLeft}>
     <a
       style={{ backgroundImage: `url(${mediumUrl})` }}
-      href={`${PLATFORM_ROOT}/events/${id}`}
+      href={href}
     >
       <Points sponsored={sponsored} survey={survey} />
       <span className={styles.eventName}>{name}</span>
