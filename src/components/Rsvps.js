@@ -13,7 +13,7 @@ const Rsvp = ({ rsvp: { user } }) => (
   />
 );
 
-const Rsvps = ({ acceptedCount, rsvpPreview }) => {
+const Rsvps = ({ event: { acceptedCount, rsvpPreview } }) => {
   if (!rsvpPreview || rsvpPreview.length < 1) {
     return null;
   }

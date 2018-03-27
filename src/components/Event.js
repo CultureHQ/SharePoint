@@ -2,9 +2,9 @@ import React from "react";
 
 import styles from "../styles";
 
-import EventFooter from "./EventFooter";
 import EventImage from "./EventImage";
 import EventMetadata from "./EventMetadata";
+import Rsvps from "./Rsvps";
 
 const Event = ({ event }) => (
   <div className={styles.event}>
@@ -12,7 +12,10 @@ const Event = ({ event }) => (
       <EventImage event={event} />
       <EventMetadata event={event} />
     </div>
-    <EventFooter event={event} />
+    <div className={styles.eventFooter}>
+      <a className={styles.moreInfo} href={event.href}>More Info</a>
+      <Rsvps event={event} />
+    </div>
   </div>
 );
 

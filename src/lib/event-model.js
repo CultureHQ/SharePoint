@@ -1,3 +1,5 @@
+import { PLATFORM_ROOT } from "../config";
+
 class EventModel {
   constructor(params) {
     const { hasOwnProperty } = Object.prototype;
@@ -7,6 +9,10 @@ class EventModel {
         this[key] = params[key];
       }
     });
+  }
+
+  get href() {
+    return `${PLATFORM_ROOT}/events/${this.id}`;
   }
 }
 
