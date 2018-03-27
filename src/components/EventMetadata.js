@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
 import formatTimestamp from "../lib/format-timestamp";
-import UserLink from "./UserLink";
-import EventCap from "./EventCap";
 import styles from "../styles";
+
+import UserLink from "./UserLink";
 
 const EventTimestamps = ({ startsAt, endsAt }) => (
   <Fragment>
@@ -21,9 +21,16 @@ const EventCancelled = () => (
   </Fragment>
 );
 
+const EventCap = ({ remainingSpots }) => (
+  <Fragment>
+    <dt>Spots:</dt>
+    <dd>{remainingSpots}</dd>
+  </Fragment>
+)
+
 const EventMetadata = ({
   event: {
-    cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap
+    cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap, remainingSpots
   }
 }) => {
   let containerClass = styles.eventRight;
@@ -46,7 +53,7 @@ const EventMetadata = ({
         )}
         <dt>Host:</dt>
         <dd><UserLink user={host}>{host.name}</UserLink></dd>
-        {cap && <EventCap acceptedCount={acceptedCount} cap={cap} />}
+        {cap && <EventCap remainingSpots={remainingSpots} />}
       </dl>
     </div>
   );
