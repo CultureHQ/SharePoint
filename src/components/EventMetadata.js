@@ -26,7 +26,7 @@ const EventCap = ({ remainingSpots }) => (
     <dt>Spots:</dt>
     <dd>{remainingSpots}</dd>
   </Fragment>
-)
+);
 
 const EventLocation = ({ location }) => (
   <Fragment>
@@ -37,7 +37,7 @@ const EventLocation = ({ location }) => (
 
 const EventMetadata = ({
   event: {
-    cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap, remainingSpots
+    cancelledAt, startsAt, endsAt, location, host, cap, remainingSpots
   }
 }) => {
   let containerClass = styles.eventRight;
