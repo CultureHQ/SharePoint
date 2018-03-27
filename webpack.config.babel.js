@@ -1,5 +1,3 @@
-import webpack from "webpack";
-
 module.exports = {
   resolve: {
     extensions: [".js", ".css"]
