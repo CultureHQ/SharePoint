@@ -6,12 +6,12 @@ import EventPoints from "./EventPoints";
 
 const EventImage = ({
   event: {
-    image: { mediumUrl }, sponsored, survey, name, href
+    imageUrl, sponsored, survey, name, href
   }
 }) => (
   <div className={styles.eventLeft}>
     <a
-      style={{ backgroundImage: `url(${mediumUrl})` }}
+      style={{ backgroundImage: `url(${imageUrl})` }}
       href={href}
     >
       <EventPoints sponsored={sponsored} survey={survey} />

@@ -21,6 +21,10 @@ class EventModel {
     return `${PLATFORM_ROOT}/events/${this.id}`;
   }
 
+  get imageUrl() {
+    return this.image.mediumUrl;
+  }
+
   get remainingSpots() {
     const remaining = this.cap - this.acceptedCount;
 
