@@ -1,5 +1,5 @@
 {
-  "name": "sharepoint",
+  "name": "SharePoint",
   "version": "0.0.1",
   "description": "CultureHQ's SharePoint add-in",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CultureHQ/sharepoint.git"
+    "url": "git+https://github.com/CultureHQ/SharePoint.git"
   },
   "author": "Kevin Deisz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CultureHQ/sharepoint/issues"
+    "url": "https://github.com/CultureHQ/SharePoint/issues"
   },
-  "homepage": "https://github.com/CultureHQ/sharepoint#readme",
+  "homepage": "https://github.com/CultureHQ/SharePoint#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
