@@ -23,16 +23,22 @@ class App extends Component {
         when: "future"
       });
 
-      if (this.componentIsMounted) {
-        this.setState({ events: events.map(event => new EventModel(event)) });
-      }
+      this.mountedSetState({
+        events: events.map(event => new EventModel(event))
+      });
     } catch (failure) {
-      this.setState({ failure });
+      this.mountedSetState({ failure });
     }
   }
 
   componentWillUnmount() {
     this.componentIsMounted = false;
+  }
+
+  mountedSetState(newState) {
+    if (this.componentIsMounted) {
+      this.setState(newState);
+    }
   }
 
   render() {
