@@ -2,11 +2,15 @@ import React from "react";
 
 import styles from "../styles";
 
-import EventPoints from "./EventPoints";
+const SponsoredRibbon = () => (
+  <span className={styles.ribbon}>
+    <span className={styles.ribbonText}>Sponsored</span>
+  </span>
+);
 
 const EventImage = ({
   event: {
-    imageUrl, sponsored, survey, name, href
+    imageUrl, sponsored, name, href
   }
 }) => (
   <div className={styles.eventLeft}>
@@ -14,7 +18,7 @@ const EventImage = ({
       style={{ backgroundImage: `url(${imageUrl})` }}
       href={href}
     >
-      <EventPoints sponsored={sponsored} survey={survey} />
+      {sponsored && <SponsoredRibbon />}
       <span className={styles.eventName}>{name}</span>
     </a>
   </div>
