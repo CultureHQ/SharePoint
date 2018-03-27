@@ -7,24 +7,21 @@ import Event from "./Event";
 import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
 
+const LIST_PARAMS = { sort: "+starts_at", when: "future" };
+
 class App extends Component {
   state = { events: null, failure: null };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.componentIsMounted = true;
 
-    try {
-      const { events } = await client.listEvents({
-        sort: "+starts_at",
-        when: "future"
-      });
-
+    client.autoPaginate("events").listEvents(LIST_PARAMS).then(({ events }) => {
       this.mountedSetState({
         events: events.map(event => new EventModel(event))
       });
-    } catch (failure) {
+    }).catch(failure => {
       this.mountedSetState({ failure });
-    }
+    });
   }
 
   componentWillUnmount() {
