@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from "react";
 import CultureHQ from "culturehq-client";
 
+import { API_ROOT } from "../config";
 import EventModel from "../lib/event-model";
 
 import Event from "./Event";
 import EventPlaceholder from "./EventPlaceholder";
 
-const client = new CultureHQ({ apiHost: "http://localhost:3000" });
+const client = new CultureHQ({ apiHost: API_ROOT });
 client.setToken("test-token");
 
 const Failure = () => <div>Failure</div>;
