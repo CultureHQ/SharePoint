@@ -10,7 +10,9 @@ const EventFooter = ({ id, acceptedCount, rsvpPreview }) => (
     <a
       className={styles.moreInfo}
       href={`${PLATFORM_ROOT}/events/${id}`}
-    >More Info</a>
+    >
+      More Info
+    </a>
     <RSVPsPreview acceptedCount={acceptedCount} rsvpPreview={rsvpPreview} />
   </div>
 );

@@ -5,7 +5,9 @@ import Points from "./Points";
 
 import { PLATFORM_ROOT } from "../config";
 
-const EventImage = ({ id, mediumUrl, sponsored, survey, name }) => (
+const EventImage = ({
+  id, mediumUrl, sponsored, survey, name
+}) => (
   <div className={styles.eventLeft}>
     <a
       style={{ backgroundImage: `url(${mediumUrl})` }}

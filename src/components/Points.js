@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../styles";
 
 const Points = ({ sponsored, survey }) => {
-  const points = survey && survey.points || 0;
+  const points = (survey && survey.points) || 0;
 
   if (sponsored) {
     const ribbon = points > 0 ? `+${points} points` : "Sponsored";

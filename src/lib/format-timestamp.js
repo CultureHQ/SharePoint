@@ -19,6 +19,6 @@ const formatTimestamp = timestamp => {
   const meridian = hours >= 12 ? "PM" : "AM";
 
   return `${month} ${day}, ${year}, ${hours}:${minutes} ${meridian}`;
-}
+};
 
 export default formatTimestamp;
