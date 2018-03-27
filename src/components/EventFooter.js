@@ -1,9 +1,9 @@
 import React from "react";
 
-import styles from "../styles";
-import RSVPsPreview from "./RSVPsPreview";
-
 import { PLATFORM_ROOT } from "../config";
+import styles from "../styles";
+
+import Rsvps from "./Rsvps";
 
 const EventFooter = ({ id, acceptedCount, rsvpPreview }) => (
   <div className={styles.eventFooter}>
@@ -13,7 +13,7 @@ const EventFooter = ({ id, acceptedCount, rsvpPreview }) => (
     >
       More Info
     </a>
-    <RSVPsPreview acceptedCount={acceptedCount} rsvpPreview={rsvpPreview} />
+    <Rsvps acceptedCount={acceptedCount} rsvpPreview={rsvpPreview} />
   </div>
 );
 

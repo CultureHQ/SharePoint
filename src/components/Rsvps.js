@@ -1,10 +1,11 @@
 import React from "react";
 
-import styles from "../styles";
-import UserLink from "./UserLink";
 import { PREVIEW_LIMIT } from "../config";
+import styles from "../styles";
 
-const RSVPPreview = ({ rsvp: { user } }) => (
+import UserLink from "./UserLink";
+
+const Rsvp = ({ rsvp: { user } }) => (
   <UserLink
     user={user}
     className={styles.thumbnail}
@@ -12,7 +13,7 @@ const RSVPPreview = ({ rsvp: { user } }) => (
   />
 );
 
-const RSVPsPreview = ({ acceptedCount, rsvpPreview }) => {
+const Rsvps = ({ acceptedCount, rsvpPreview }) => {
   if (!rsvpPreview || rsvpPreview.length < 1) {
     return null;
   }
@@ -23,11 +24,11 @@ const RSVPsPreview = ({ acceptedCount, rsvpPreview }) => {
     <span className={styles.rsvpPreview}>
       <span>Who&#39;s coming: </span>
       {rsvpPreview.slice(0, PREVIEW_LIMIT).map(rsvp => (
-        <RSVPPreview rsvp={rsvp} key={rsvp.id} />
+        <Rsvp rsvp={rsvp} key={rsvp.id} />
       ))}
       {extra > 0 && <span>+{extra}</span>}
     </span>
   );
 };
 
-export default RSVPsPreview;
+export default Rsvps;
