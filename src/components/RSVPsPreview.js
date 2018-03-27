@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "../styles";
 import UserLink from "./UserLink";
-import { PREVIEW_LIMIT } from "../lib/config";
+import { PREVIEW_LIMIT } from "../config";
 
 const RSVPPreview = ({ rsvp: { user } }) => (
   <UserLink

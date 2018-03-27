@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../styles";
 import Points from "./Points";
 
-import { PLATFORM_ROOT } from "../lib/config";
+import { PLATFORM_ROOT } from "../config";
 
 const EventImage = ({ id, mediumUrl, sponsored, survey, name }) => (
   <div className={styles.eventLeft}>
