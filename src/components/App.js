@@ -2,12 +2,12 @@ import React, { Component, Fragment } from "react";
 import CultureHQ from "culturehq-client";
 
 import EventModel from "../lib/event-model";
+
 import Event from "./Event";
+import EventPlaceholder from "./EventPlaceholder";
 
 const client = new CultureHQ({ apiHost: "http://localhost:3000" });
 client.setToken("test-token");
-
-const Loading = () => <div>Loading...</div>;
 
 const Failure = () => <div>Failure</div>;
 
@@ -26,7 +26,7 @@ class App extends Component {
       this.mountedSetState({
         events: events.map(event => new EventModel(event))
       });
-    } catch (failure) {
+   } catch (failure) {
       this.mountedSetState({ failure });
     }
   }
@@ -45,7 +45,13 @@ class App extends Component {
     const { events, failure } = this.state;
 
     if (events === null) {
-      return <Loading />;
+      return (
+        <Fragment>
+          <EventPlaceholder />
+          <EventPlaceholder />
+          <EventPlaceholder />
+        </Fragment>
+      );
     }
 
     if (failure) {
