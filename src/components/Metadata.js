@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-import formatTimestamp from "./format-timestamp";
+import formatTimestamp from "../lib/format-timestamp";
 import UserLink from "./UserLink";
 import Cap from "./Cap";
-import styles from "./styles";
+import styles from "../styles";
 
 const EventTimestamps = ({ startsAt, endsAt }) => (
   <Fragment>

@@ -1,9 +1,9 @@
 import React from "react";
 
-import styles from "./styles";
+import styles from "../styles";
 import RSVPsPreview from "./RSVPsPreview";
 
-import { PLATFORM_ROOT } from "./config";
+import { PLATFORM_ROOT } from "../lib/config";
 
 const EventFooter = ({ id, acceptedCount, rsvpPreview }) => (
   <div className={styles.eventFooter}>

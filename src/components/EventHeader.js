@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./styles";
+import styles from "../styles";
 import EventImage from "./EventImage";
 import Metadata from "./Metadata";
 

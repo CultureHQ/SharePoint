@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./styles";
+import styles from "../styles";
 
 const Points = ({ sponsored, survey }) => {
   const points = survey && survey.points || 0;

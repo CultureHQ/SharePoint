@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PLATFORM_ROOT } from "./config";
+import { PLATFORM_ROOT } from "../lib/config";
 
 const UserLink = ({ user: { id, active }, children, ...props }) => {
   if (active) {
