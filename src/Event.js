@@ -1,102 +1,14 @@
 import React, { Fragment } from "react";
 
+import formatTimestamp from "./format-timestamp";
 import styles from "./styles";
 
-const PLATFORM_ROOT = "https://platform.culturehq.com";
-const PREVIEW_LIMIT = 5;
+import Cap from "./Cap";
+import Points from "./Points";
+import RSVPsPreview from "./RSVPsPreview";
+import UserLink from "./UserLink";
 
-const MONTH_NAMES = [
-  "January", "February", "March", "April", "May", "June", "July", "August",
-  "September", "October", "November", "December"
-];
-
-const formatTimestamp = timestamp => {
-  const date = new Date(timestamp);
-
-  const day = date.getDate();
-  const month = MONTH_NAMES[date.getMonth()];
-  const year = date.getFullYear();
-
-  let hours = date.getHours();
-  hours = hours > 12 ? hours - 12 : hours;
-
-  let minutes = date.getMinutes();
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-
-  const meridian = hours >= 12 ? "PM" : "AM";
-
-  return `${month} ${day}, ${year}, ${hours}:${minutes} ${meridian}`;
-}
-
-const UserLink = ({ user: { id, active }, children, ...props }) => {
-  if (active) {
-    return <a href={`${PLATFORM_ROOT}/people/${id}`} {...props}>{children}</a>;
-  }
-  return <span {...props}>{children}</span>;
-}
-
-const Points = ({ sponsored, survey }) => {
-  const points = survey && survey.points || 0;
-
-  if (sponsored) {
-    const ribbon = points > 0 ? `+${points} points` : "Sponsored";
-    return (
-      <span className={styles.ribbon}>
-        <span className={styles.ribbonText}>{ribbon}</span>
-      </span>
-    );
-  }
-
-  if (points > 0) {
-    return <span>+{points} Points</span>;
-  }
-
-  return null;
-};
-
-const RSVPPreview = ({ rsvp: { user } }) => (
-  <UserLink
-    user={user}
-    className={styles.thumbnail}
-    style={{ backgroundImage: `url(${user.avatar.thumbUrl})` }}
-  />
-);
-
-const RSVPsPreview = ({ acceptedCount, rsvpPreview }) => {
-  if (!rsvpPreview || rsvpPreview.length < 1) {
-    return null;
-  }
-
-  const extra = acceptedCount - Math.min(PREVIEW_LIMIT, rsvpPreview.length);
-
-  return (
-    <span className={styles.rsvpPreview}>
-      <span>Who&#39;s coming: </span>
-      {rsvpPreview.slice(0, PREVIEW_LIMIT).map(rsvp => (
-        <RSVPPreview rsvp={rsvp} key={rsvp.id} />
-      ))}
-      {extra > 0 && <span>+{extra}</span>}
-    </span>
-  );
-};
-
-const Cap = ({ acceptedCount, cap }) => {
-  const remaining = cap - acceptedCount;
-  let message;
-
-  if (remaining < 1) {
-    message = "No spots remaining";
-  } else {
-    message = `${remaining} spot${remaining === 1 ? "" : "s"} remaining`;
-  }
-
-  return (
-    <Fragment>
-      <dt>Spots:</dt>
-      <dd>{message}</dd>
-    </Fragment>
-  );
-};
+import { PLATFORM_ROOT, PREVIEW_LIMIT } from "./config";
 
 const EventTimestamps = ({ startsAt, endsAt }) => (
   <Fragment>
