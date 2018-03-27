@@ -1,9 +1,7 @@
 import EventModel from "../src/lib/event-model";
 import { PREVIEW_LIMIT } from "../src/config";
 
-const datePatternFrom = date => (
-  new RegExp(`[A-Z][a-z]+ ${date.getDate()}, ${date.getFullYear()}`)
-);
+import datePatternFrom from "./support/date-pattern-from";
 
 test("endsAtDisplay", () => {
   const endsAt = new Date();
