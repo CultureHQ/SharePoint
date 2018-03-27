@@ -6,11 +6,10 @@ import EventModel from "../lib/event-model";
 
 import Event from "./Event";
 import EventPlaceholder from "./EventPlaceholder";
+import Failure from "./Failure";
 
 const client = new CultureHQ({ apiHost: API_ROOT });
 client.setToken("test-token");
-
-const Failure = () => <div>Failure</div>;
 
 class App extends Component {
   state = { events: null, failure: null };
@@ -45,6 +44,10 @@ class App extends Component {
   render() {
     const { events, failure } = this.state;
 
+    if (failure) {
+      return <Failure failure={failure} />;
+    }
+
     if (events === null) {
       return (
         <Fragment>
@@ -53,10 +56,6 @@ class App extends Component {
           <EventPlaceholder />
         </Fragment>
       );
-    }
-
-    if (failure) {
-      return <Failure failure={failure} />;
     }
 
     return (

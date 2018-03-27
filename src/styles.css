@@ -1,18 +1,32 @@
+.failure {
+  background-color: #f2dede;
+  border: #ebccd1 solid 1px;
+  color: #a94442;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  padding: 15px;
+}
+
+.failure a {
+  color: #a94442;
+}
+
 .event {
   background-color: white;
   border-radius: 3px;
   box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.2);
+  color: #5c5f67;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
-  color: #5c5f67;
   margin-bottom: 15px;
   max-width: 900px;
 }
 
 .eventHeader {
-  display: flex;
   align-items: stretch;
+  display: flex;
 }
 
 .eventLeft {
@@ -33,9 +47,9 @@
 }
 
 .eventFooter:after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 .eventLeft a,
@@ -46,7 +60,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  height: 100%;
   height: 240px;
   position: relative;
 }
@@ -77,15 +90,15 @@
 
 .ribbonText {
   background-color: #79b17d;
-  transform: rotate(-45deg);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  width: 155px;
   display: block;
-  position: relative;
-  left: -55px;
-  top: 20px;
   font-size: 12px;
+  left: -55px;
   padding: 7px 0 7px 10px;
+  position: relative;
+  top: 20px;
+  transform: rotate(-45deg);
+  width: 155px;
 }
 
 .eventRightPlaceholder {
@@ -133,24 +146,24 @@
 }
 
 .rsvpPreview a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 20px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  border-radius: 20px;
+  display: inline-block;
+  height: 30px;
   margin-left: -10px;
   vertical-align: middle;
+  width: 30px;
 }
 
 .moreInfo {
+  background-color: #79b17d;
+  border-radius: 5px;
   color: white;
-  text-decoration: none;
   flex-grow: 1;
   float: right;
   padding: 10px 27px;
   text-align: center;
-  background-color: #79b17d;
-  border-radius: 5px;
+  text-decoration: none;
 }
