@@ -88,6 +88,12 @@
   padding: 7px 0 7px 10px;
 }
 
+.eventRightPlaceholder {
+  background-color: rgba(0, 0, 0, 0.15);
+  height: 1.5em;
+  margin: 15px;
+}
+
 .eventRightCancelled {
   opacity: 0.55;
 }

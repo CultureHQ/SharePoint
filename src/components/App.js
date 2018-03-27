@@ -27,7 +27,7 @@ class App extends Component {
       this.mountedSetState({
         events: events.map(event => new EventModel(event))
       });
-   } catch (failure) {
+    } catch (failure) {
       this.mountedSetState({ failure });
     }
   }
