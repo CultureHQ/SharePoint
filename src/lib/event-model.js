@@ -1,5 +1,7 @@
 import { PLATFORM_ROOT, PREVIEW_LIMIT } from "../config";
 
+import formatTimestamp from "./format-timestamp";
+
 class EventModel {
   constructor(params) {
     const { hasOwnProperty } = Object.prototype;
@@ -9,6 +11,10 @@ class EventModel {
         this[key] = params[key];
       }
     });
+  }
+
+  get endsAtDisplay() {
+    return formatTimestamp(this.endsAt);
   }
 
   get href() {
@@ -31,6 +37,10 @@ class EventModel {
   get rsvpExtra() {
     const displayedRsvps = Math.min(PREVIEW_LIMIT, this.rsvpPreview.length);
     return this.acceptedCount - displayedRsvps;
+  }
+
+  get startsAtDisplay() {
+    return formatTimestamp(this.startsAt);
   }
 }
 

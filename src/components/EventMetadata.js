@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 
-import formatTimestamp from "../lib/format-timestamp";
 import styles from "../styles";
 
 import UserLink from "./UserLink";
@@ -8,9 +7,9 @@ import UserLink from "./UserLink";
 const EventTimestamps = ({ startsAt, endsAt }) => (
   <Fragment>
     <dt>Starts:</dt>
-    <dd>{formatTimestamp(startsAt)}</dd>
+    <dd>{startsAt}</dd>
     <dt>Ends:</dt>
-    <dd>{formatTimestamp(endsAt)}</dd>
+    <dd>{endsAt}</dd>
   </Fragment>
 );
 
@@ -37,7 +36,8 @@ const EventLocation = ({ location }) => (
 
 const EventMetadata = ({
   event: {
-    cancelledAt, startsAt, endsAt, location, host, cap, remainingSpots
+    cancelledAt, startsAtDisplay, endsAtDisplay, location, host, cap,
+    remainingSpots
   }
 }) => {
   let containerClass = styles.eventRight;
@@ -50,7 +50,7 @@ const EventMetadata = ({
       <dl>
         {cancelledAt ?
           <EventCancelled /> :
-          <EventTimestamps startsAt={startsAt} endsAt={endsAt} />
+          <EventTimestamps startsAt={startsAtDisplay} endsAt={endsAtDisplay} />
         }
         {location && <EventLocation location={location} />}
         <dt>Host:</dt>
