@@ -2,14 +2,8 @@ import React, { Fragment } from "react";
 
 import styles from "../styles";
 
-import Cap from "./Cap";
 import EventFooter from "./EventFooter";
 import EventHeader from "./EventHeader";
-import EventImage from "./EventImage";
-import Metadata from "./Metadata";
-import Points from "./Points";
-import RSVPsPreview from "./RSVPsPreview";
-import UserLink from "./UserLink";
 
 const Event = ({
   event: {

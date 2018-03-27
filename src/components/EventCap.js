@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const Cap = ({ acceptedCount, cap }) => {
+const EventCap = ({ acceptedCount, cap }) => {
   const remaining = cap - acceptedCount;
   let message;
 
@@ -18,4 +18,4 @@ const Cap = ({ acceptedCount, cap }) => {
   );
 };
 
-export default Cap;
+export default EventCap;

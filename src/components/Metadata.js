@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import formatTimestamp from "../lib/format-timestamp";
 import UserLink from "./UserLink";
-import Cap from "./Cap";
+import EventCap from "./EventCap";
 import styles from "../styles";
 
 const EventTimestamps = ({ startsAt, endsAt }) => (
@@ -44,7 +44,7 @@ const Metadata = ({
         )}
         <dt>Host:</dt>
         <dd><UserLink user={host}>{host.name}</UserLink></dd>
-        {cap && <Cap acceptedCount={acceptedCount} cap={cap} />}
+        {cap && <EventCap acceptedCount={acceptedCount} cap={cap} />}
       </dl>
     </div>
   );
