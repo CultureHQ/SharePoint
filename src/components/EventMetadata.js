@@ -14,7 +14,7 @@ const EventTimestamps = ({ startsAt, endsAt }) => (
   </Fragment>
 );
 
-const Cancelled = () => (
+const EventCancelled = () => (
   <Fragment>
     <dt>Status:</dt>
     <dd>Cancelled</dd>
@@ -33,7 +33,7 @@ const EventMetadata = ({
     <div className={containerClass}>
       <dl>
         {cancelledAt ?
-          <Cancelled /> :
+          <EventCancelled /> :
           <EventTimestamps startsAt={startsAt} endsAt={endsAt} />
         }
         {location && (
