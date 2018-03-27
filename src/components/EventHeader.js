@@ -5,8 +5,10 @@ import EventImage from "./EventImage";
 import Metadata from "./Metadata";
 
 const EventHeader = ({
-  mediumUrl, id, sponsored, survey, name, cancelledAt, startsAt, endsAt,
-  location, host, acceptedCount, cap
+  event: {
+    image: { mediumUrl }, id, sponsored, survey, name, cancelledAt, startsAt,
+    endsAt, location, host, acceptedCount, cap
+  }
 }) => (
   <div className={styles.eventHeader}>
     <EventImage

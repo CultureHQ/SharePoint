@@ -5,7 +5,7 @@ import styles from "../styles";
 
 import Rsvps from "./Rsvps";
 
-const EventFooter = ({ id, acceptedCount, rsvpPreview }) => (
+const EventFooter = ({ event: { id, acceptedCount, rsvpPreview } }) => (
   <div className={styles.eventFooter}>
     <a
       className={styles.moreInfo}
