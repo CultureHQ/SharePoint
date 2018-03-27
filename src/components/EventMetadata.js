@@ -21,7 +21,7 @@ const Cancelled = () => (
   </Fragment>
 );
 
-const Metadata = ({
+const EventMetadata = ({
   event: { cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap }
 }) => {
   let containerClass = styles.eventRight;
@@ -50,4 +50,4 @@ const Metadata = ({
   );
 };
 
-export default Metadata;
+export default EventMetadata;
