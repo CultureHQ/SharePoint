@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import CultureHQ from "culturehq-client";
 
+import EventModel from "../lib/event-model";
 import Event from "./Event";
 
 const client = new CultureHQ({ apiHost: "http://localhost:3000" });
@@ -23,7 +24,7 @@ class App extends Component {
       });
 
       if (this.componentIsMounted) {
-        this.setState({ events });
+        this.setState({ events: events.map(event => new EventModel(event)) });
       }
     } catch (failure) {
       this.setState({ failure });
