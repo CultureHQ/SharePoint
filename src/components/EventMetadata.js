@@ -28,6 +28,13 @@ const EventCap = ({ remainingSpots }) => (
   </Fragment>
 )
 
+const EventLocation = ({ location }) => (
+  <Fragment>
+    <dt>Where:</dt>
+    <dd>{location}</dd>
+  </Fragment>
+);
+
 const EventMetadata = ({
   event: {
     cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap, remainingSpots
@@ -45,12 +52,7 @@ const EventMetadata = ({
           <EventCancelled /> :
           <EventTimestamps startsAt={startsAt} endsAt={endsAt} />
         }
-        {location && (
-          <Fragment>
-            <dt>Where:</dt>
-            <dd>{location}</dd>
-          </Fragment>
-        )}
+        {location && <EventLocation location={location} />}
         <dt>Host:</dt>
         <dd><UserLink user={host}>{host.name}</UserLink></dd>
         {cap && <EventCap remainingSpots={remainingSpots} />}
