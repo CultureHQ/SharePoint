@@ -3,11 +3,15 @@ import React from "react";
 import styles from "../styles";
 
 import EventFooter from "./EventFooter";
-import EventHeader from "./EventHeader";
+import EventImage from "./EventImage";
+import EventMetadata from "./EventMetadata";
 
 const Event = ({ event }) => (
   <div className={styles.event}>
-    <EventHeader event={event} />
+    <div className={styles.eventHeader}>
+      <EventImage event={event} />
+      <EventMetadata event={event} />
+    </div>
     <EventFooter event={event} />
   </div>
 );
