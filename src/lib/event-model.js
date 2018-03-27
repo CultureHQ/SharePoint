@@ -2,6 +2,8 @@ import { PLATFORM_ROOT, PREVIEW_LIMIT } from "../config";
 
 import formatTimestamp from "./format-timestamp";
 
+const DAY_IN_MILLISECONDS = 86400000;
+
 class EventModel {
   constructor(params) {
     const { hasOwnProperty } = Object.prototype;
@@ -23,6 +25,16 @@ class EventModel {
 
   get imageUrl() {
     return this.image.mediumUrl;
+  }
+
+  get isLive() {
+    const currentDate = new Date();
+    if (currentDate < new Date(this.startsAt)) {
+      return false;
+    }
+
+    const firstDayEnd = new Date(this.startsAt).getTime() + DAY_IN_MILLISECONDS;
+    return currentDate < new Date(firstDayEnd);
   }
 
   get remainingSpots() {
