@@ -6,7 +6,9 @@ import Points from "./Points";
 import { PLATFORM_ROOT } from "../config";
 
 const EventImage = ({
-  event: { id, image: { mediumUrl }, sponsored, survey, name }
+  event: {
+    id, image: { mediumUrl }, sponsored, survey, name
+  }
 }) => (
   <div className={styles.eventLeft}>
     <a

@@ -1,6 +1,5 @@
 import React from "react";
 
-import { PREVIEW_LIMIT } from "../config";
 import styles from "../styles";
 
 import UserLink from "./UserLink";
@@ -13,20 +12,18 @@ const Rsvp = ({ rsvp: { user } }) => (
   />
 );
 
-const Rsvps = ({ event: { acceptedCount, rsvpPreview } }) => {
-  if (!rsvpPreview || rsvpPreview.length < 1) {
+const Rsvps = ({ event: { rsvps, rsvpExtra } }) => {
+  if (rsvps.length < 1) {
     return null;
   }
-
-  const extra = acceptedCount - Math.min(PREVIEW_LIMIT, rsvpPreview.length);
 
   return (
     <span className={styles.rsvpPreview}>
       <span>Who&#39;s coming: </span>
-      {rsvpPreview.slice(0, PREVIEW_LIMIT).map(rsvp => (
+      {rsvps.map(rsvp => (
         <Rsvp rsvp={rsvp} key={rsvp.id} />
       ))}
-      {extra > 0 && <span>+{extra}</span>}
+      {rsvpExtra > 0 && <span>+{rsvpExtra}</span>}
     </span>
   );
 };
