@@ -26,7 +26,7 @@ class App extends Component {
         this.setState({ events });
       }
     } catch (failure) {
-      this.setState({ events });
+      this.setState({ failure });
     }
   }
 
