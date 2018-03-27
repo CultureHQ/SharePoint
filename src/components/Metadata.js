@@ -22,7 +22,7 @@ const Cancelled = () => (
 );
 
 const Metadata = ({
-  cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap
+  event: { cancelledAt, startsAt, endsAt, location, host, acceptedCount, cap }
 }) => {
   let containerClass = styles.eventRight;
   if (cancelledAt) {
