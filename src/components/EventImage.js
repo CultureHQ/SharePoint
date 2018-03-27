@@ -1,7 +1,8 @@
 import React from "react";
 
 import styles from "../styles";
-import Points from "./Points";
+
+import EventPoints from "./EventPoints";
 
 const EventImage = ({
   event: {
@@ -13,7 +14,7 @@ const EventImage = ({
       style={{ backgroundImage: `url(${mediumUrl})` }}
       href={href}
     >
-      <Points sponsored={sponsored} survey={survey} />
+      <EventPoints sponsored={sponsored} survey={survey} />
       <span className={styles.eventName}>{name}</span>
     </a>
   </div>

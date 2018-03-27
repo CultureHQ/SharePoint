@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "../styles";
 
-const Points = ({ sponsored, survey }) => {
+const EventPoints = ({ sponsored, survey }) => {
   const points = (survey && survey.points) || 0;
 
   if (sponsored) {
@@ -21,4 +21,4 @@ const Points = ({ sponsored, survey }) => {
   return null;
 };
 
-export default Points;
+export default EventPoints;
