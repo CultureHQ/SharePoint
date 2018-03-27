@@ -1,0 +1,148 @@
+.event {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: #5c5f67;
+  margin-bottom: 15px;
+  max-width: 900px;
+}
+
+.eventHeader {
+  display: flex;
+  align-items: stretch;
+}
+
+.eventLeft {
+  flex-grow: 1;
+  width: 55%;
+}
+
+.eventRight {
+  flex-direction: column;
+  width: 45%;
+}
+
+.eventFooter {
+  border-top: 1px solid #dddddd;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+}
+
+.eventFooter:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.eventLeft a {
+  border-top-left-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 100%;
+  height: 240px;
+  position: relative;
+}
+
+.eventName {
+  background-color: rgba(0, 0, 0, 0.75);
+  bottom: 15px;
+  color: white;
+  font-weight: 200;
+  left: 0;
+  padding: 10px 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.ribbon {
+  color: white;
+  display: block;
+  font-weight: 200;
+  height: 88px;
+  left: -3px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: -3px;
+}
+
+.ribbonText {
+  background-color: #79b17d;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  width: 155px;
+  display: block;
+  position: relative;
+  left: -55px;
+  top: 20px;
+  font-size: 12px;
+  padding: 7px 0 7px 10px;
+}
+
+.eventRightCancelled {
+  opacity: 0.55;
+}
+
+.eventRight dl {
+  margin: 0;
+  padding: 15px;
+}
+
+.eventRight dt {
+  float: left;
+  width: 70px;
+}
+
+.eventRight dd {
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.eventRight a {
+  color: #5c5f67;
+  text-decoration: none;
+}
+
+.rsvpPreview {
+  color: #888888;
+  line-height: 38px;
+}
+
+.rsvpPreview span:first-child {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.rsvpPreview span:last-child {
+  margin-left: 5px;
+}
+
+.rsvpPreview a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-left: -10px;
+  vertical-align: middle;
+}
+
+.moreInfo {
+  color: white;
+  text-decoration: none;
+  flex-grow: 1;
+  float: right;
+  padding: 10px 27px;
+  text-align: center;
+  background-color: #79b17d;
+  border-radius: 5px;
+}
