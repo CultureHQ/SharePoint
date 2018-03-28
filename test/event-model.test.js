@@ -42,7 +42,7 @@ test("isLive after start date", () => {
 test("remainingSpots when cap is hit", () => {
   const event = new EventModel({ cap: 5, acceptedCount: 5 });
 
-  expect(event.remainingSpots).not.toMatch(new RegExp("\d"));
+  expect(event.remainingSpots).not.toMatch(new RegExp("\\d"));
 });
 
 test("remainingSpots when cap hasn't been hit", () => {
