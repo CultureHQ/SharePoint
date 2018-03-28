@@ -19,7 +19,7 @@ test("only displays ribbon when the event is sponsored", () => {
 });
 
 test("does not display ribbon when the event is not sponsored", () => {
-  const event = Object.assign(EVENT, { sponsored: false });
+  const event = Object.assign({}, EVENT, { sponsored: false });
   const component = mount(<EventImage event={event} />);
 
   expect(component.text()).not.toContain("Sponsored");
@@ -33,7 +33,7 @@ test("displays live banner when the event is live", () => {
 });
 
 test("does not display live banner when the event is not live", () => {
-  const event = Object.assign(EVENT, { isLive: false });
+  const event = Object.assign({}, EVENT, { isLive: false });
   const component = mount(<EventImage event={event} />);
 
   expect(component.text()).not.toContain("LIVE");

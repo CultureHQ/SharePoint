@@ -15,7 +15,9 @@ class App extends Component {
   componentDidMount() {
     this.componentIsMounted = true;
 
-    client.autoPaginate("events").listEvents(LIST_PARAMS).then(({ events }) => {
+    const paginator = client.autoPaginate("events");
+
+    return paginator.listEvents(LIST_PARAMS).then(({ events }) => {
       this.mountedSetState({
         events: events.map(event => new EventModel(event))
       });

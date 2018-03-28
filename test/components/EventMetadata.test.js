@@ -29,7 +29,7 @@ test("displays cancelled status if the event is cancelled", () => {
 });
 
 test("displays timestamps when the event is not cancelled", () => {
-  const event = Object.assign(EVENT, { cancelledAt: null });
+  const event = Object.assign({}, EVENT, { cancelledAt: null });
   const component = mount(<EventMetadata event={event} />);
 
   expect(component.findWhere(hasHeading("Starts")).length).toEqual(1);
@@ -43,7 +43,7 @@ test("displays location only when location is present", () => {
 });
 
 test("does not display location when it is not present", () => {
-  const event = Object.assign(EVENT, { location: null });
+  const event = Object.assign({}, EVENT, { location: null });
   const component = mount(<EventMetadata event={event} />);
 
   expect(component.findWhere(hasHeading("Where")).length).toEqual(0);
@@ -57,7 +57,7 @@ test("displays remaining spots only when capped", () => {
 });
 
 test("does not display spots when not capped", () => {
-  const event = Object.assign(EVENT, { cap: null });
+  const event = Object.assign({}, EVENT, { cap: null });
   const component = mount(<EventMetadata event={event} />);
 
   expect(component.findWhere(hasHeading("Spots")).length).toEqual(0);
