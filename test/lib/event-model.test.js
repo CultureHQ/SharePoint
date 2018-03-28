@@ -1,7 +1,7 @@
-import EventModel from "../src/lib/event-model";
-import { PREVIEW_LIMIT } from "../src/config";
+import EventModel from "../../src/lib/event-model";
+import { PREVIEW_LIMIT } from "../../src/config";
 
-import datePatternFrom from "./support/date-pattern-from";
+import datePatternFrom from "../support/date-pattern-from";
 
 test("endsAtDisplay", () => {
   const endsAt = new Date();

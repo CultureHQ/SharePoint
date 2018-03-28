@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 
-import Rsvps from "../src/components/Rsvps";
-import UserLink from "../src/components/UserLink";
+import Rsvps from "../../src/components/Rsvps";
+import UserLink from "../../src/components/UserLink";
 
 test("returns nothing when there are no rsvps", () => {
   const component = shallow(<Rsvps event={{ rsvps: [] }} />);
