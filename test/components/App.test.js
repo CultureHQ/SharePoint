@@ -58,3 +58,11 @@ test("renders a failure if an error is returned from the client", async () => {
 
   expect(component.find(Failure).length).toEqual(1);
 });
+
+test("handles unmounting appropriately", () => {
+  const component = mount(<App />);
+  const instance = component.instance();
+
+  component.unmount();
+  expect(instance.componentIsMounted).toBe(false);
+});
