@@ -156,6 +156,10 @@ class CHQEvent {
     return this.event.name;
   }
 
+  get host(): IUser {
+    return this.event.host;
+  }
+
   get cancelledAt(): string {
     return this.event.cancelledAt;
   }

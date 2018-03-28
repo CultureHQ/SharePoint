@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "../styles.module.scss";
 import { ICHQEvent } from "../lib/event";
 
-/*import UserLink from "./UserLink";*/
+import UserLink from "./UserLink";
 
 const EventTimestamps = ({ startsAt, endsAt }) => (
   <section>
@@ -56,13 +56,11 @@ export default class EventMetadata extends React.Component<IEventMetadataProps, 
             <EventTimestamps startsAt={event.startsAtDisplay} endsAt={event.endsAtDisplay} />
           }
           {event.location && <EventLocation location={event.location} />}
+          <dt>Host:</dt>
+          <dd><UserLink user={event.host}>{event.host.name}</UserLink></dd>
           {event.cap && <EventCap remainingSpots={event.remainingSpots} />}
         </dl>
       </div>
     );
   }
 }
-
-/*<dt>Host:</dt>
-<dd><UserLink user={host}>{host.name}</UserLink></dd>
-*/
