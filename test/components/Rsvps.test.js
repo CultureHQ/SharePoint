@@ -4,6 +4,15 @@ import { shallow, mount } from "enzyme";
 import Rsvps from "../../src/components/Rsvps";
 import UserLink from "../../src/components/UserLink";
 
+const RSVP = {
+  id: 1,
+  user: {
+    id: 1,
+    active: true,
+    avatar: { thumbUrl: "http://www.example.com/user.png" }
+  }
+};
+
 test("returns nothing when there are no rsvps", () => {
   const component = shallow(<Rsvps event={{ rsvps: [] }} />);
 
@@ -11,12 +20,18 @@ test("returns nothing when there are no rsvps", () => {
 });
 
 test("returns a list of rsvps for each one given", () => {
-  const thumbUrl = "http://www.example.com/user.png";
   const rsvps = [
-    { id: 1, user: { id: 1, active: true, avatar: { thumbUrl } } },
-    { id: 2, user: { id: 2, active: true, avatar: { thumbUrl } } }
+    RSVP,
+    Object.assign({}, RSVP, { id: 2, user: { id: 2, ...RSVP.user } })
   ];
 
   const component = mount(<Rsvps event={{ rsvps }} />);
   expect(component.find(UserLink).length).toEqual(2);
+});
+
+test("displays extra when there are more than the display cap", () => {
+  const event = { rsvps: [RSVP], rsvpExtra: 5 };
+  const component = mount(<Rsvps event={event} />);
+
+  expect(component.text()).toContain("+5");
 });

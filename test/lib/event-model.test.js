@@ -49,6 +49,14 @@ test("remainingSpots when cap hasn't been hit", () => {
   const event = new EventModel({ cap: 5, acceptedCount: 3 });
 
   expect(event.remainingSpots).toContain("2");
+  expect(event.remainingSpots).toContain("spots ");
+});
+
+test("remainingSpots handles pluralization", () => {
+  const event = new EventModel({ cap: 5, acceptedCount: 4 });
+
+  expect(event.remainingSpots).toContain("1");
+  expect(event.remainingSpots).toContain("spot ");
 });
 
 test("rsvps when over the limit", () => {
