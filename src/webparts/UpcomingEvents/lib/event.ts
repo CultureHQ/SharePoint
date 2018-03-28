@@ -115,6 +115,8 @@ export interface ICHQEvent extends IEvent {
   startsAtDisplay: string;
   endsAtDisplay: string;
   remainingSpots: number;
+  rsvps: IRsvp[];
+  rsvpExtra: number;
 }
 
 class CHQEvent {

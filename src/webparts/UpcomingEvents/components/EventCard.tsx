@@ -5,6 +5,7 @@ import { ICHQEvent } from "../lib/event";
 
 import EventImage from "./EventImage";
 import EventMetadata from "./EventMetadata";
+import Rsvps from "./Rsvps";
 
 export interface IEventCardProps {
   event: ICHQEvent;
@@ -22,10 +23,9 @@ export default class EventCard extends React.Component<IEventCardProps, {}> {
         </div>
         <div className={styles.eventFooter}>
           <a className={styles.moreInfo} href={event.href}>More Info</a>
+          <Rsvps event={event} />
         </div>
       </div>
     );
   }
 }
-
-// <Rsvps event={event} />
