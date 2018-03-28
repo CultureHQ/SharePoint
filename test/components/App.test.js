@@ -15,7 +15,7 @@ test("loads events from the client and then renders them", async () => {
       id: 1,
       name: "Kevin",
       avatar: { thumbUrl: "https://www.example.com/user.png" }
-    }
+    };
 
     const event = {
       id: 1,
@@ -47,9 +47,9 @@ test("loads events from the client and then renders them", async () => {
 });
 
 test("renders a failure if an error is returned from the client", async () => {
-  client.autoPaginate.mockImplementation(() => {
-    return { listEvents: () => Promise.reject(new Error("foobar")) };
-  });
+  client.autoPaginate.mockImplementation(() => ({
+    listEvents: () => Promise.reject(new Error("foobar"))
+  }));
 
   const component = mount(<App />);
 
