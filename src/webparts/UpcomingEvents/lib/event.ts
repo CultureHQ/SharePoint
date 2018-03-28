@@ -112,6 +112,9 @@ export interface ICHQEvent extends IEvent {
   imageUrl: string;
   href: string;
   isLive: boolean;
+  startsAtDisplay: string;
+  endsAtDisplay: string;
+  remainingSpots: number;
 }
 
 class CHQEvent {
@@ -151,6 +154,10 @@ class CHQEvent {
 
   get name(): string {
     return this.event.name;
+  }
+
+  get cancelledAt(): string {
+    return this.event.cancelledAt;
   }
 
   get endsAtDisplay(): string {

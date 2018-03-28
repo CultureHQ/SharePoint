@@ -4,6 +4,7 @@ import styles from "../styles.module.scss";
 import { ICHQEvent } from "../lib/event";
 
 import EventImage from "./EventImage";
+import EventMetadata from "./EventMetadata";
 
 export interface IEventCardProps {
   event: ICHQEvent;
@@ -17,16 +18,14 @@ export default class EventCard extends React.Component<IEventCardProps, {}> {
       <div className={styles.event}>
         <div className={styles.eventHeader}>
           <EventImage event={event} />
+          <EventMetadata event={event} />
         </div>
         <div className={styles.eventFooter}>
-
+          <a className={styles.moreInfo} href={event.href}>More Info</a>
         </div>
       </div>
     );
   }
 }
 
-// <a className={styles.moreInfo} href={event.href}>More Info</a>
-// <EventImage event={event} />
-// <EventMetadata event={event} />
 // <Rsvps event={event} />
