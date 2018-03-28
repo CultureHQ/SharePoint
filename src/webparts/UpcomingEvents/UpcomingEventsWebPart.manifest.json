@@ -1,0 +1,17 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "2d5e3714-f3ed-4869-8847-831e1b3d0ed9",
+  "alias": "UpcomingEventsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Upcoming Events" },
+    "description": { "default": "Your CultureHQ community&#39;s upcoming events" },
+    "officeFabricIconFontName": "Page",
+    "properties": {}
+  }]
+}

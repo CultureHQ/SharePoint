@@ -1,4 +1,6 @@
 coverage/
 dist/
+lib/
 node_modules/
+temp/
 yarn-error.log
