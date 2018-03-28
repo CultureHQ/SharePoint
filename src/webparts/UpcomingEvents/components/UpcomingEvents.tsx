@@ -1,8 +1,9 @@
 import * as React from "react";
 
 import client from "../lib/client";
+import CHQEvent, { ICHQEvent } from "../lib/event";
 
-import Event, { IEvent } from "./Event";
+import EventCard from "./EventCard";
 import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
 
@@ -11,7 +12,7 @@ export interface IUpcomingEventsProps {
 }
 
 export interface IUpcomingEventsState {
-  events: [IEvent];
+  events: ICHQEvent[];
   failure: boolean;
 }
 
@@ -27,7 +28,7 @@ export default class UpcomingEvents extends React.Component<IUpcomingEventsProps
     this.componentIsMounted = true;
 
     client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future" }).then(({ events }) => {
-      this.mountedSetState({ events });
+      this.mountedSetState({ events: events.map(event => new CHQEvent(event)) });
     }).catch(failure => {
       this.mountedSetState({ failure: true });
     });
@@ -62,9 +63,7 @@ export default class UpcomingEvents extends React.Component<IUpcomingEventsProps
 
     return (
       <section>
-        {events.map(event => (
-          <Event key={event.id} event={event} />
-        ))}
+        {events.map(event => <EventCard key={event.id} event={event} />)}
       </section>
     );
   }
