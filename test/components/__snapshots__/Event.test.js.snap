@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Event
+    event={
+      Object {
+        "href": "https://platform.culturehq.com/events/1",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="eventHeader"
+        >
+          <EventImage
+            event={
+              Object {
+                "href": "https://platform.culturehq.com/events/1",
+              }
+            }
+          />
+          <EventMetadata
+            event={
+              Object {
+                "href": "https://platform.culturehq.com/events/1",
+              }
+            }
+          />
+        </div>,
+        <div
+          className="eventFooter"
+        >
+          <a
+            className="moreInfo"
+            href="https://platform.culturehq.com/events/1"
+          >
+            More Info
+          </a>
+          <Rsvps
+            event={
+              Object {
+                "href": "https://platform.culturehq.com/events/1",
+              }
+            }
+          />
+        </div>,
+      ],
+      "className": "event",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <EventImage
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />,
+            <EventMetadata
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />,
+          ],
+          "className": "eventHeader",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "event": Object {
+                "href": "https://platform.culturehq.com/events/1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "event": Object {
+                "href": "https://platform.culturehq.com/events/1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <a
+              className="moreInfo"
+              href="https://platform.culturehq.com/events/1"
+            >
+              More Info
+            </a>,
+            <Rsvps
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />,
+          ],
+          "className": "eventFooter",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "More Info",
+              "className": "moreInfo",
+              "href": "https://platform.culturehq.com/events/1",
+            },
+            "ref": null,
+            "rendered": "More Info",
+            "type": "a",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "event": Object {
+                "href": "https://platform.culturehq.com/events/1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="eventHeader"
+          >
+            <EventImage
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />
+            <EventMetadata
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />
+          </div>,
+          <div
+            className="eventFooter"
+          >
+            <a
+              className="moreInfo"
+              href="https://platform.culturehq.com/events/1"
+            >
+              More Info
+            </a>
+            <Rsvps
+              event={
+                Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                }
+              }
+            />
+          </div>,
+        ],
+        "className": "event",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <EventImage
+                event={
+                  Object {
+                    "href": "https://platform.culturehq.com/events/1",
+                  }
+                }
+              />,
+              <EventMetadata
+                event={
+                  Object {
+                    "href": "https://platform.culturehq.com/events/1",
+                  }
+                }
+              />,
+            ],
+            "className": "eventHeader",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "event": Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "event": Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <a
+                className="moreInfo"
+                href="https://platform.culturehq.com/events/1"
+              >
+                More Info
+              </a>,
+              <Rsvps
+                event={
+                  Object {
+                    "href": "https://platform.culturehq.com/events/1",
+                  }
+                }
+              />,
+            ],
+            "className": "eventFooter",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "More Info",
+                "className": "moreInfo",
+                "href": "https://platform.culturehq.com/events/1",
+              },
+              "ref": null,
+              "rendered": "More Info",
+              "type": "a",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "event": Object {
+                  "href": "https://platform.culturehq.com/events/1",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
