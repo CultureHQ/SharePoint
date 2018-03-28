@@ -1,6 +1,6 @@
-import formatTimestamp from "../src/lib/format-timestamp";
+import formatTimestamp from "../../src/lib/format-timestamp";
 
-import datePatternFrom from "./support/date-pattern-from";
+import datePatternFrom from "../support/date-pattern-from";
 
 test("builds appropriately looking date", () => {
   const date = new Date();

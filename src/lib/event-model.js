@@ -6,12 +6,8 @@ const DAY_IN_MILLISECONDS = 86400000;
 
 class EventModel {
   constructor(params) {
-    const { hasOwnProperty } = Object.prototype;
-
     Object.keys(params).forEach(key => {
-      if (hasOwnProperty.call(params, key)) {
-        this[key] = params[key];
-      }
+      this[key] = params[key];
     });
   }
 

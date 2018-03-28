@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Failure />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <strong>
+          Oh no!
+        </strong>,
+        " We failed to fetch the events from CultureHQ. Please refresh to try again. If this continues to happen, please contact",
+        " ",
+        <a
+          href="mailto:support@culturehq.com"
+        >
+          support@culturehq.com
+        </a>,
+        ".",
+      ],
+      "className": "failure",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Oh no!",
+        },
+        "ref": null,
+        "rendered": "Oh no!",
+        "type": "strong",
+      },
+      " We failed to fetch the events from CultureHQ. Please refresh to try again. If this continues to happen, please contact",
+      " ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "support@culturehq.com",
+          "href": "mailto:support@culturehq.com",
+        },
+        "ref": null,
+        "rendered": "support@culturehq.com",
+        "type": "a",
+      },
+      ".",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <strong>
+            Oh no!
+          </strong>,
+          " We failed to fetch the events from CultureHQ. Please refresh to try again. If this continues to happen, please contact",
+          " ",
+          <a
+            href="mailto:support@culturehq.com"
+          >
+            support@culturehq.com
+          </a>,
+          ".",
+        ],
+        "className": "failure",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Oh no!",
+          },
+          "ref": null,
+          "rendered": "Oh no!",
+          "type": "strong",
+        },
+        " We failed to fetch the events from CultureHQ. Please refresh to try again. If this continues to happen, please contact",
+        " ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "support@culturehq.com",
+            "href": "mailto:support@culturehq.com",
+          },
+          "ref": null,
+          "rendered": "support@culturehq.com",
+          "type": "a",
+        },
+        ".",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

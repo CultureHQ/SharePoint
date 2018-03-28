@@ -1,5 +1,7 @@
 # SharePoint
 
+[![Build Status](https://travis-ci.com/CultureHQ/SharePoint.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/CultureHQ/SharePoint)
+
 CultureHQ's SharePoint add-in.
 
 ## Getting started

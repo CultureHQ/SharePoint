@@ -1,7 +1,4 @@
 module.exports = {
-  resolve: {
-    extensions: [".js", ".css"]
-  },
   module: {
     rules: [{
       test: /\.js$/,

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import styles from "../styles";
+import styles from "../styles.css";
 
 import UserLink from "./UserLink";
 

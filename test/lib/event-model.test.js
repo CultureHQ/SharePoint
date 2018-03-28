@@ -1,7 +1,7 @@
-import EventModel from "../src/lib/event-model";
-import { PREVIEW_LIMIT } from "../src/config";
+import EventModel from "../../src/lib/event-model";
+import { PREVIEW_LIMIT } from "../../src/config";
 
-import datePatternFrom from "./support/date-pattern-from";
+import datePatternFrom from "../support/date-pattern-from";
 
 test("endsAtDisplay", () => {
   const endsAt = new Date();
@@ -42,13 +42,21 @@ test("isLive after start date", () => {
 test("remainingSpots when cap is hit", () => {
   const event = new EventModel({ cap: 5, acceptedCount: 5 });
 
-  expect(event.remainingSpots).not.toMatch(new RegExp("\d"));
+  expect(event.remainingSpots).not.toMatch(new RegExp("\\d"));
 });
 
 test("remainingSpots when cap hasn't been hit", () => {
   const event = new EventModel({ cap: 5, acceptedCount: 3 });
 
   expect(event.remainingSpots).toContain("2");
+  expect(event.remainingSpots).toContain("spots ");
+});
+
+test("remainingSpots handles pluralization", () => {
+  const event = new EventModel({ cap: 5, acceptedCount: 4 });
+
+  expect(event.remainingSpots).toContain("1");
+  expect(event.remainingSpots).toContain("spot ");
 });
 
 test("rsvps when over the limit", () => {
