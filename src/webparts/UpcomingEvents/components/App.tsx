@@ -1,11 +1,15 @@
 import * as React from "react";
+import CultureHQ from "culturehq-client";
 
-import client from "../lib/client";
+import { API_ROOT } from "../config";
 import CHQEvent, { ICHQEvent } from "../lib/event";
 
 import EventCard from "./EventCard";
 import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
+import TokenNotSet from "./TokenNotSet";
+
+const client = new CultureHQ({ apiHost: API_ROOT });
 
 export interface IAppProps {
   token: string;
@@ -26,12 +30,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   public componentDidMount() {
     this.componentIsMounted = true;
+    this.attemptFetch(this.props.token);
+  }
 
-    client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future" }).then(({ events }) => {
-      this.mountedSetState({ events: events.map(event => new CHQEvent(event)) });
-    }).catch(failure => {
-      this.mountedSetState({ failure: true });
-    });
+  public componentWillReceiveProps(newProps: IAppProps) {
+    this.attemptFetch(newProps.token);
   }
 
   public componentWillUnmount() {
@@ -44,8 +47,27 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
   }
 
+  private attemptFetch(token: string) {
+    if (token.length !== 24) {
+      return;
+    }
+
+    client.setToken(token);
+
+    client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future" }).then(({ events }) => {
+      this.mountedSetState({ events: events.map(event => new CHQEvent(event)) });
+    }).catch(failure => {
+      this.mountedSetState({ failure: true });
+    });
+  }
+
   public render(): React.ReactElement<IAppProps> {
+    const { token } = this.props;
     const { events, failure } = this.state;
+
+    if (token.length !== 24) {
+      return <TokenNotSet />;
+    }
 
     if (failure) {
       return <Failure />;
