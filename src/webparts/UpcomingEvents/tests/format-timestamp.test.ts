@@ -8,7 +8,7 @@ import formatTimestamp from "../lib/format-timestamp";
 describe("formatTimestamp", () => {
   it("builds appropriate looking dates", () => {
     const date = new Date();
-    const formatted = ;
+    const formatted = formatTimestamp(date.toString());
 
     const pattern = new RegExp(`[A-Z][a-z]+ ${date.getDate()}, ${date.getFullYear()}`);
     assert.match(formatted, pattern);
