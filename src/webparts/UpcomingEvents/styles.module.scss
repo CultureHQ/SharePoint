@@ -1,15 +1,38 @@
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+
+$error-background: #f2dede;
+$error-border: #ebccd1;
+$error-color: #a94442;
+
+$warning-background: #fcf8e3;
+$warning-border: #faebcc;
+$warning-color: #8a6d3b;
+
 .failure {
-  background-color: #f2dede;
-  border: #ebccd1 solid 1px;
-  color: #a94442;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: $error-background;
+  border: $error-border solid 1px;
+  color: $error-color;
+  font-family: $font-family;
   font-size: 16px;
   padding: 15px;
 }
 
 .failure a {
-  color: #a94442;
+  color: $error-color;
+}
+
+.tokenNotSet {
+  background-color: $warning-background;
+  border: $warning-border solid 1px;
+  color: $warning-color;
+  font-family: $font-family;
+  font-size: 16px;
+  padding: 15px;
+}
+
+.tokenNotSet a {
+  color: $warning-color;
 }
 
 .event {
@@ -17,8 +40,7 @@
   border-radius: 3px;
   box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.2);
   color: #5c5f67;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: $font-family;
   font-size: 16px;
   margin-bottom: 15px;
   max-width: 900px;
