@@ -26,24 +26,29 @@ export const buildRsvp = (attrs: IBuildRsvpAttrs): IRsvp => ({
 });
 
 export interface IBuildEventAttrs {
-  rsvpPreview: IRsvp[];
+  rsvpPreview?: IRsvp[];
+  sponsored?: boolean;
+  startsAt?: string;
+  endsAt?: string;
 }
 
-export const buildEvent = (attrs: IBuildEventAttrs): ICHQEvent => (
-  new CHQEvent({
+export const buildEvent = (attrs: IBuildEventAttrs): ICHQEvent => {
+  const rsvpPreview = hasOwnProperty.call(attrs, "rsvpPreview") ? attrs.rsvpPreview : [];
+
+  return new CHQEvent({
     id: 1,
     name: "Test Event",
-    startsAt: "2018-01-01",
-    endsAt: "2018-01-02",
-    sponsored: true,
+    startsAt: hasOwnProperty.call(attrs, "startsAt") ? attrs.startsAt : "2018-01-01",
+    endsAt: hasOwnProperty.call(attrs, "endsAt") ? attrs.endsAt : "2018-01-02",
+    sponsored: hasOwnProperty.call(attrs, "sponsored") ? attrs.sponsored : true,
     location: "CultureHQ Boston",
     cap: 5,
-    acceptedCount: attrs.rsvpPreview.length,
+    acceptedCount: rsvpPreview.length,
     cancelledAt: null,
     host: buildUser({ id: 1 }),
-    rsvpPreview: attrs.rsvpPreview,
+    rsvpPreview,
     image: {
       mediumUrl: "https://www.example.com/event.png"
     }
-  })
-);
+  });
+};

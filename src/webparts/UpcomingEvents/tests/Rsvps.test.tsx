@@ -7,7 +7,6 @@ import * as TestUtils from "react-addons-test-utils";
 import { assert } from "chai";
 
 import Rsvps from "../components/Rsvps";
-import CHQEvent, { IUser, IRsvp, ICHQEvent } from "../lib/event";
 import { buildRsvp, buildEvent } from "./support";
 
 describe("Rsvps", () => {
