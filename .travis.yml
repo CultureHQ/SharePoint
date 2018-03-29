@@ -1,11 +1,12 @@
 language: node_js
-node_js: stable
+node_js: 6
 branches:
   only: master
 script:
-- yarn lint
-- yarn test
-cache: yarn
+- gulp test
+cache:
+  directories:
+  - node_modules
 notifications:
   slack:
     rooms:
