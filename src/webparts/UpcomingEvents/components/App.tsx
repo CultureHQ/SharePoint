@@ -34,6 +34,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
   }
 
   public componentWillReceiveProps(newProps: IAppProps) {
+    if (newProps.token === this.props.token) {
+      return;
+    }
+
+    this.mountedSetState({ events: null, failure: false });
     this.attemptFetch(newProps.token);
   }
 
@@ -41,23 +46,27 @@ export default class App extends React.Component<IAppProps, IAppState> {
     this.componentIsMounted = false;
   }
 
-  private mountedSetState(newState) {
+  public componentDidCatch() {
+    this.mountedSetState({ events: null, failure: true });
+  }
+
+  private mountedSetState(newState: IAppState) {
     if (this.componentIsMounted) {
       this.setState(newState);
     }
   }
 
   private attemptFetch(token: string) {
-    if (token.length !== 24) {
+    if (!token || token.length !== 24) {
       return;
     }
 
     client.setToken(token);
 
     client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future" }).then(({ events }) => {
-      this.mountedSetState({ events: events.map(event => new CHQEvent(event)) });
+      this.mountedSetState({ events: events.map(event => new CHQEvent(event)), failure: false });
     }).catch(failure => {
-      this.mountedSetState({ failure: true });
+      this.mountedSetState({ events: null, failure: true });
     });
   }
 
@@ -65,7 +74,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
     const { token } = this.props;
     const { events, failure } = this.state;
 
-    if (token.length !== 24) {
+    if (!token || token.length !== 24) {
       return <TokenNotSet />;
     }
 

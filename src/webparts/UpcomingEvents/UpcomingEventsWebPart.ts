@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as ReactDom from "react-dom";
+import * as ReactDOM from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
 import {
   BaseClientSideWebPart,
@@ -20,7 +20,7 @@ export default class UpcomingEventsWebPart extends BaseClientSideWebPart<IUpcomi
       token: this.properties.token
     });
 
-    ReactDom.render(element, this.domElement);
+    ReactDOM.render(element, this.domElement);
   }
 
   protected get dataVersion(): Version {
