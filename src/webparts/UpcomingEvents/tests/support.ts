@@ -30,6 +30,9 @@ export interface IBuildEventAttrs {
   sponsored?: boolean;
   startsAt?: string;
   endsAt?: string;
+  cancelledAt?: string;
+  location?: string;
+  cap?: number;
 }
 
 export const buildEvent = (attrs: IBuildEventAttrs): ICHQEvent => {
@@ -41,10 +44,10 @@ export const buildEvent = (attrs: IBuildEventAttrs): ICHQEvent => {
     startsAt: hasOwnProperty.call(attrs, "startsAt") ? attrs.startsAt : "2018-01-01",
     endsAt: hasOwnProperty.call(attrs, "endsAt") ? attrs.endsAt : "2018-01-02",
     sponsored: hasOwnProperty.call(attrs, "sponsored") ? attrs.sponsored : true,
-    location: "CultureHQ Boston",
-    cap: 5,
+    location: hasOwnProperty.call(attrs, "location") ? attrs.location : "CultureHQ Boston",
+    cap: hasOwnProperty.call(attrs, "cap") ? attrs.cap : 5,
     acceptedCount: rsvpPreview.length,
-    cancelledAt: null,
+    cancelledAt: hasOwnProperty.call(attrs, "cancelledAt") ? attrs.cancelledAt : null,
     host: buildUser({ id: 1 }),
     rsvpPreview,
     image: {

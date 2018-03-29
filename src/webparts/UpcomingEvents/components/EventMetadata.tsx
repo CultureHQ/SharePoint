@@ -52,8 +52,8 @@ export default class EventMetadata extends React.Component<IEventMetadataProps, 
       <div className={containerClass}>
         <dl>
           {event.cancelledAt ?
-            <EventCancelled /> :
-            <EventTimestamps startsAt={event.startsAtDisplay} endsAt={event.endsAtDisplay} />
+            <EventCancelled key="cancelled" /> :
+            <EventTimestamps key="timestamps" startsAt={event.startsAtDisplay} endsAt={event.endsAtDisplay} />
           }
           {event.location && <EventLocation location={event.location} />}
           <dt>Host:</dt>
