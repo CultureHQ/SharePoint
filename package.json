@@ -4,11 +4,9 @@
   "description": "CultureHQ's SharePoint add-in",
   "main": "index.js",
   "scripts": {
-    "analyze": "source-map-explorer dist/main.js",
-    "build": "webpack --mode production --config webpack.config.babel.js --progress",
-    "start": "webpack-dev-server --mode development --config webpack.config.babel.js --hot",
-    "lint": "eslint .",
-    "test": "jest --coverage"
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -38,18 +36,6 @@
     "@types/react-addons-test-utils": "0.14.15",
     "@microsoft/sp-core-library": "~1.1.0",
     "@microsoft/sp-webpart-base": "~1.1.0",
-    "@microsoft/sp-lodash-subset": "~1.1.0",
-    "@microsoft/sp-office-ui-fabric-core": "~1.4.0-0",
     "@types/webpack-env": ">=1.12.1 <1.14.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "css"
-    ],
-    "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
-    },
-    "setupTestFrameworkScriptFile": "./test/setup-tests"
   }
 }

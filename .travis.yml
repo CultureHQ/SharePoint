@@ -3,7 +3,7 @@ node_js: 6
 branches:
   only: master
 script:
-- gulp test
+- npm run test
 cache:
   directories:
   - node_modules
