@@ -4,108 +4,39 @@ import formatTimestamp from "./format-timestamp";
 
 const DAY_IN_MILLISECONDS = 86400000;
 
-export interface IInterest {
-  id: number;
-  name: string;
-}
-
-export interface IDepartment {
-  id: number;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface ILocation {
-  id: number;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface IOrganizationValue {
-  id: number;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface IUserAvatar {
   thumbUrl: string;
-  mediumUrl: string;
-  largeUrl: string;
-  isDefault: boolean;
-  updatedAt: string;
-  originalUrl: string;
 }
 
 export interface IRsvp {
   id: number;
-  responseType: string;
-  rating: number;
-  receiveNotifications: boolean;
-  attended: string;
-  createdAt: string;
-  updatedAt: string;
   user: IUser;
-  inviter: IUser;
 }
 
 export interface IUser {
   id: number;
   name: string;
-  email: string;
-  culturehqAdmin: boolean;
-  organizationAdmin: boolean;
   active: boolean;
-  title: string;
-  claimed: boolean;
-  createdAt: string;
-  updatedAt: string;
-  points: number;
-  departments: IDepartment[];
-  interests: IInterest[];
-  location: ILocation;
   avatar: IUserAvatar;
-  tenureInDays: number;
 }
 
 export interface IEventImage {
-  thumbUrl: string;
   mediumUrl: string;
-  largeUrl: string;
-  isDefault: boolean;
-  updatedAt: string;
-  originalUrl: string;
 }
 
 export interface IEvent {
   id: number;
   name: string;
-  details: string;
   startsAt: string;
   endsAt: string;
-  eventType: string;
   sponsored: boolean;
-  createdAt: string;
-  updatedAt: string;
   location: string;
-  visibility: string;
   cap: number;
-  inviteOnly: boolean;
-  openInvites: boolean;
   acceptedCount: number;
-  timezone: string;
   cancelledAt: string;
-  commentCount: number;
-  allLocations: boolean;
   host: IUser;
-  organizationValues: [IOrganizationValue];
-  locations: [ILocation];
-  interests: [IInterest];
   rsvpPreview: [IRsvp];
   image: IEventImage;
-  rsvpForUser: IRsvp;
 }
 
 export interface ICHQEvent extends IEvent {
