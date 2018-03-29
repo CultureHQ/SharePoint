@@ -8,25 +8,17 @@ import { assert } from "chai";
 
 import UserLink from "../components/UserLink";
 import { IUser } from "../lib/event";
+import { buildUser } from "./support";
 
 describe("UserLink", () => {
   let renderer;
-
-  const buildUser = (active: boolean): IUser => ({
-    id: 1,
-    name: "Kevin",
-    active,
-    avatar: {
-      thumbUrl: "https://www.example.com/user.png"
-    }
-  });
 
   beforeEach(() => {
     renderer = TestUtils.createRenderer();
   });
 
   it("should render a link when the user is active", () => {
-    const user = buildUser(true);
+    const user = buildUser({ active: true });
     renderer.render(<UserLink user={user} />);
 
     const result = renderer.getRenderOutput();
@@ -34,7 +26,7 @@ describe("UserLink", () => {
   });
 
   it("should render a span when the user is inactive", () => {
-    const user = buildUser(false);
+    const user = buildUser({ active: false });
     renderer.render(<UserLink user={user} />);
 
     const result = renderer.getRenderOutput();
