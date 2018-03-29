@@ -7,19 +7,19 @@ import EventCard from "./EventCard";
 import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
 
-export interface IUpcomingEventsProps {
+export interface IAppProps {
   token: string;
 }
 
-export interface IUpcomingEventsState {
+export interface IAppState {
   events: ICHQEvent[];
   failure: boolean;
 }
 
-export default class UpcomingEvents extends React.Component<IUpcomingEventsProps, IUpcomingEventsState> {
+export default class App extends React.Component<IAppProps, IAppState> {
   private componentIsMounted: boolean;
 
-  constructor(props: IUpcomingEventsProps) {
+  constructor(props: IAppProps) {
     super(props);
     this.state = { events: null, failure: false };
   }
@@ -44,7 +44,7 @@ export default class UpcomingEvents extends React.Component<IUpcomingEventsProps
     }
   }
 
-  public render(): React.ReactElement<IUpcomingEventsProps> {
+  public render(): React.ReactElement<IAppProps> {
     const { events, failure } = this.state;
 
     if (failure) {

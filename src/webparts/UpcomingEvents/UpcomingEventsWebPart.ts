@@ -8,8 +8,7 @@ import {
 } from "@microsoft/sp-webpart-base";
 
 import * as strings from "UpcomingEventsWebPartStrings";
-import UpcomingEvents from "./components/UpcomingEvents";
-import { IUpcomingEventsProps } from "./components/UpcomingEvents";
+import App, { IAppProps } from "./components/App";
 
 export interface IUpcomingEventsWebPartProps {
   token: string;
@@ -17,7 +16,7 @@ export interface IUpcomingEventsWebPartProps {
 
 export default class UpcomingEventsWebPart extends BaseClientSideWebPart<IUpcomingEventsWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<IUpcomingEventsProps> = React.createElement(UpcomingEvents, {
+    const element: React.ReactElement<IAppProps> = React.createElement(App, {
       token: this.properties.token
     });
 
