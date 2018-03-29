@@ -1,0 +1,11 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "culture-hq-client-side-solution",
+    "id": "a5b6ff86-5a60-4029-9f3c-315d62a7cf54",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/culture-hq.sppkg"
+  }
+}
