@@ -35,7 +35,7 @@ export interface IEvent {
   acceptedCount: number;
   cancelledAt: string;
   host: IUser;
-  rsvpPreview: [IRsvp];
+  rsvpPreview: IRsvp[];
   image: IEventImage;
 }
 
@@ -45,7 +45,7 @@ export interface ICHQEvent extends IEvent {
   isLive: boolean;
   startsAtDisplay: string;
   endsAtDisplay: string;
-  remainingSpots: number;
+  remainingSpots: string;
   rsvps: IRsvp[];
   rsvpExtra: number;
 }
@@ -61,12 +61,24 @@ class CHQEvent {
     return this.event.id;
   }
 
+  get name(): string {
+    return this.event.name;
+  }
+
   get startsAt(): string {
     return this.event.startsAt;
   }
 
   get endsAt(): string {
     return this.event.endsAt;
+  }
+
+  get sponsored(): boolean {
+    return this.event.sponsored;
+  }
+
+  get location(): string {
+    return this.event.location;
   }
 
   get cap(): number {
@@ -77,36 +89,28 @@ class CHQEvent {
     return this.event.acceptedCount;
   }
 
-  get rsvpPreview(): IRsvp[] {
-    return this.event.rsvpPreview;
-  }
-
-  get sponsored(): boolean {
-    return this.event.sponsored;
-  }
-
-  get name(): string {
-    return this.event.name;
+  get cancelledAt(): string {
+    return this.event.cancelledAt;
   }
 
   get host(): IUser {
     return this.event.host;
   }
 
-  get cancelledAt(): string {
-    return this.event.cancelledAt;
+  get rsvpPreview(): IRsvp[] {
+    return this.event.rsvpPreview;
   }
 
-  get endsAtDisplay(): string {
-    return formatTimestamp(this.event.endsAt);
+  get image(): IEventImage {
+    return this.event.image;
+  }
+
+  get imageUrl(): string {
+    return this.image.mediumUrl;
   }
 
   get href(): string {
     return `${PLATFORM_ROOT}/events/${this.event.id}`;
-  }
-
-  get imageUrl(): string {
-    return this.event.image.mediumUrl;
   }
 
   get isLive(): boolean {
@@ -117,6 +121,14 @@ class CHQEvent {
 
     const firstDayEnd = new Date(this.event.startsAt).getTime() + DAY_IN_MILLISECONDS;
     return currentDate < new Date(firstDayEnd);
+  }
+
+  get startsAtDisplay(): string {
+    return formatTimestamp(this.event.startsAt);
+  }
+
+  get endsAtDisplay(): string {
+    return formatTimestamp(this.event.endsAt);
   }
 
   get remainingSpots(): string {
@@ -135,10 +147,6 @@ class CHQEvent {
   get rsvpExtra(): number {
     const displayedRsvps = Math.min(PREVIEW_LIMIT, this.event.rsvpPreview.length);
     return this.event.acceptedCount - displayedRsvps;
-  }
-
-  get startsAtDisplay(): string {
-    return formatTimestamp(this.event.startsAt);
   }
 }
 
