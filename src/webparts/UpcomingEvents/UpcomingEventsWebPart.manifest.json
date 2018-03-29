@@ -10,7 +10,7 @@
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Other" },
     "title": { "default": "Upcoming Events" },
-    "description": { "default": "Your CultureHQ community&#39;s upcoming events" },
+    "description": { "default": "Your CultureHQ community's upcoming events" },
     "iconImageUrl": "https://s3-us-west-2.amazonaws.com/culturehq-assets/SharePoint-logo.png",
     "properties": {}
   }]
