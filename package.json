@@ -1,6 +1,6 @@
 {
   "name": "SharePoint",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CultureHQ's SharePoint add-in",
   "main": "index.js",
   "scripts": {
