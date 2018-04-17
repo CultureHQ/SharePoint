@@ -7,6 +7,7 @@ import CHQEvent, { ICHQEvent } from "../lib/event";
 import EventCard from "./EventCard";
 import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
+import NoEvents from "./NoEvents";
 import TokenNotSet from "./TokenNotSet";
 
 const client = new CultureHQ({ apiHost: API_ROOT });
@@ -90,6 +91,10 @@ export default class App extends React.Component<IAppProps, IAppState> {
           <EventPlaceholder />
         </section>
       );
+    }
+
+    if (events.length === 0) {
+      return <NoEvents />;
     }
 
     return (

@@ -24,7 +24,7 @@ $small-screen: 768px;
   color: $error-color;
 }
 
-.tokenNotSet {
+.warning {
   background-color: $warning-background;
   border: $warning-border solid 1px;
   color: $warning-color;
@@ -33,7 +33,7 @@ $small-screen: 768px;
   padding: 15px;
 }
 
-.tokenNotSet a {
+.warning a {
   color: $warning-color;
 }
 
