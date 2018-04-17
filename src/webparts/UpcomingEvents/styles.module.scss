@@ -9,6 +9,8 @@ $warning-background: #fcf8e3;
 $warning-border: #faebcc;
 $warning-color: #8a6d3b;
 
+$small-screen: 768px;
+
 .failure {
   background-color: $error-background;
   border: $error-border solid 1px;
@@ -47,18 +49,24 @@ $warning-color: #8a6d3b;
 }
 
 .eventHeader {
-  align-items: stretch;
-  display: flex;
+  @media only screen and (min-width: $small-screen) {
+    align-items: stretch;
+    display: flex;
+  }
 }
 
 .eventLeft {
-  flex-grow: 1;
-  width: 55%;
+  @media only screen and (min-width: $small-screen) {
+    flex-grow: 1;
+    width: 55%;
+  }
 }
 
 .eventRight {
-  flex-direction: column;
-  width: 45%;
+  @media only screen and (min-width: $small-screen) {
+    flex-direction: column;
+    width: 45%;
+  }
 }
 
 .eventFooter {
