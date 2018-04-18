@@ -64,7 +64,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
     client.setToken(token);
 
-    client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future" }).then(({ events }) => {
+    client.autoPaginate("events").listEvents({ sort: "+starts_at", when: "future", allLocations: true }).then(({ events }) => {
       this.mountedSetState({ events: events.map(event => new CHQEvent(event)), failure: false });
     }).catch(failure => {
       this.mountedSetState({ events: null, failure: true });
