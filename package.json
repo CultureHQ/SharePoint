@@ -30,7 +30,7 @@
     "react-addons-test-utils": "^15.6.2"
   },
   "dependencies": {
-    "culturehq-client": "CultureHQ/client#v0.0.88",
+    "culturehq-client": "CultureHQ/client#v2.0.2",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "@types/react": "0.14.46",

@@ -11,7 +11,7 @@
     "group": { "default": "Other" },
     "title": { "default": "Upcoming Events" },
     "description": { "default": "Your CultureHQ community's upcoming events" },
-    "iconImageUrl": "https://s3-us-west-2.amazonaws.com/culturehq-assets/SharePoint-logo.png",
+    "iconImageUrl": "https://assets.culturehq.com/SharePoint-logo.png",
     "properties": {}
   }]
 }
