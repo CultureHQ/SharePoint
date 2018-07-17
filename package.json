@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "build:prod": "gulp package-solution",
+    "clean": "gulp clean",
+    "package": "gulp --ship && gulp package-solution --ship",
     "serve": "gulp serve",
     "test": "gulp test"
   },
