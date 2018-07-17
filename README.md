@@ -15,6 +15,6 @@ In the root of the directory, run `npm install` to install the necessary depende
 Run `npm run package` in the root directory. This will create two things:
 
 * `sharepoint/solution/culture-hq.sppkg` - can be sent to clients to import into their app catalogue (https://support.office.com/en-us/article/use-the-app-catalog-to-make-custom-business-apps-available-for-your-sharepoint-online-environment-0b6ab336-8b83-423f-a06b-bcc52861cba0).
-* `temp/deploy` - a directory containing the necessary async assets that will be requested by the package. These should be deployed to our `sharepoint.culturhq.com` CDN.
+* `temp/deploy` - a directory containing the necessary async assets that will be requested by the package. These should be deployed to our `sharepoint.culturehq.com` CDN.
 
 They can then load the `Upcoming Events` webpart onto a SharePoint page and configure it appropriately.
