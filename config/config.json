@@ -7,7 +7,5 @@
     }
   ],
   "externals": {},
-  "localizedResources": {
-    "UpcomingEventsWebPartStrings": "webparts/UpcomingEvents/loc/{locale}.js"
-  }
+  "localizedResources": {}
 }

@@ -7,7 +7,6 @@ import {
   PropertyPaneTextField
 } from "@microsoft/sp-webpart-base";
 
-import * as strings from "UpcomingEventsWebPartStrings";
 import App, { IAppProps } from "./components/App";
 
 export interface IUpcomingEventsWebPartProps {
@@ -31,12 +30,12 @@ export default class UpcomingEventsWebPart extends BaseClientSideWebPart<IUpcomi
     return {
       pages: [{
         header: {
-          description: strings.PropertyPaneDescription
+          description: "Your CultureHQ community's upcoming events"
         },
         groups: [{
           groupFields: [
             PropertyPaneTextField("token", {
-              label: strings.TokenFieldLabel,
+              label: "Token",
               placeholder: "Your token here"
             })
           ]

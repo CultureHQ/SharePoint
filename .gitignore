@@ -3,6 +3,7 @@
 /node_modules
 /sharepoint
 /temp
+/token.txt
 
 *.css
 *.scss.ts
