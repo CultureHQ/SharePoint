@@ -31,16 +31,18 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   public componentDidMount() {
     this.componentIsMounted = true;
-    this.attemptFetch(this.props.token);
+    this.attemptFetch();
   }
 
-  public componentWillReceiveProps(newProps: IAppProps) {
-    if (newProps.token === this.props.token) {
+  public componentDidUpdate(prevProps: IAppProps, prevState: IAppState) {
+    const { token } = this.props;
+
+    if (prevProps.token === token) {
       return;
     }
 
     this.mountedSetState({ events: null, failure: false });
-    this.attemptFetch(newProps.token);
+    this.attemptFetch();
   }
 
   public componentWillUnmount() {
@@ -57,7 +59,9 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
   }
 
-  private attemptFetch(token: string) {
+  private attemptFetch() {
+    const { token } = this.props;
+
     if (!token || token.length !== 24) {
       return;
     }
