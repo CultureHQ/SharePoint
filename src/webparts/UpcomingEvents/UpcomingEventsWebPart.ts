@@ -11,13 +11,13 @@ import App, { IAppProps } from "./components/App";
 
 export interface IUpcomingEventsWebPartProps {
   token: string;
+  maxHeight?: number;
 }
 
 export default class UpcomingEventsWebPart extends BaseClientSideWebPart<IUpcomingEventsWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<IAppProps> = React.createElement(App, {
-      token: this.properties.token
-    });
+    const { token, maxHeight } = this.properties;
+    const element: React.ReactElement<IAppProps> = React.createElement(App, { token, maxHeight });
 
     ReactDOM.render(element, this.domElement);
   }
@@ -37,6 +37,10 @@ export default class UpcomingEventsWebPart extends BaseClientSideWebPart<IUpcomi
             PropertyPaneTextField("token", {
               label: "Token",
               placeholder: "Your token here"
+            }),
+            PropertyPaneTextField("maxHeight", {
+              label: "Max Height (px)",
+              placeholder: "Max height of the WebPart in pixels"
             })
           ]
         }]
