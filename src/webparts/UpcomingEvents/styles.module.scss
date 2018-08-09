@@ -44,28 +44,36 @@ $small-screen: 768px;
   color: #5c5f67;
   font-family: $font-family;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin: 8px;
   max-width: 900px;
+
+  & + & {
+    margin-top: 16px;
+  }
 }
 
 .eventHeader {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+
   @media only screen and (min-width: $small-screen) {
-    align-items: stretch;
-    display: flex;
   }
 }
 
 .eventLeft {
+  flex-grow: 1;
+  flex-basis: 55%;
+
   @media only screen and (min-width: $small-screen) {
-    flex-grow: 1;
-    width: 55%;
   }
 }
 
 .eventRight {
+  flex-basis: 45%;
+  min-width: 300px;
+
   @media only screen and (min-width: $small-screen) {
-    flex-direction: column;
-    width: 45%;
   }
 }
 
@@ -124,7 +132,7 @@ $small-screen: 768px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   display: block;
   font-size: 12px;
-  left: -55px;
+  left: -60px;
   padding: 7px 0 7px 10px;
   position: relative;
   top: 20px;
@@ -161,6 +169,10 @@ $small-screen: 768px;
   margin: 15px;
 }
 
+.eventRight {
+  width: 100%;
+}
+
 .eventRightCancelled {
   opacity: 0.55;
 }
@@ -178,6 +190,7 @@ $small-screen: 768px;
 .eventRight dd {
   font-weight: 200;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .eventRight a {

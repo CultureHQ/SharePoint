@@ -5,35 +5,27 @@ import { ICHQEvent } from "../lib/event";
 
 import UserLink from "./UserLink";
 
-const EventTimestamps = ({ startsAt, endsAt }) => (
-  <section>
-    <dt>Starts:</dt>
-    <dd>{startsAt}</dd>
-    <dt>Ends:</dt>
-    <dd>{endsAt}</dd>
-  </section>
-);
+const EventTimestamps = ({ startsAt, endsAt }) => [
+  <dt key="start-key">Starts:</dt>,
+  <dd key="start-val">{startsAt}</dd>,
+  <dt key="end-key">Ends:</dt>,
+  <dd key="end-val">{endsAt}</dd>
+];
 
-const EventCancelled = () => (
-  <section>
-    <dt>Status:</dt>
-    <dd>Cancelled</dd>
-  </section>
-);
+const EventCancelled = () => [
+  <dt key="stat-key">Status:</dt>,
+  <dd key="stat-end">Cancelled</dd>
+];
 
-const EventCap = ({ remainingSpots }) => (
-  <section>
-    <dt>Spots:</dt>
-    <dd>{remainingSpots}</dd>
-  </section>
-);
+const EventCap = ({ remainingSpots }) => [
+  <dt key="spots-key">Spots:</dt>,
+  <dd key="spots-end">{remainingSpots}</dd>
+];
 
-const EventLocation = ({ location }) => (
-  <section>
-    <dt>Where:</dt>
-    <dd>{location}</dd>
-  </section>
-);
+const EventLocation = ({ location }) => [
+  <dt key="where-key">Where:</dt>,
+  <dd key="where-end">{location}</dd>
+];
 
 export interface IEventMetadataProps {
   event: ICHQEvent;

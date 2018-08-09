@@ -1,7 +1,6 @@
 import * as React from "react";
-import CultureHQ from "culturehq-client";
+import client from "culturehq-client";
 
-import { API_ROOT } from "../config";
 import CHQEvent, { ICHQEvent } from "../lib/event";
 
 import EventCard from "./EventCard";
@@ -9,8 +8,6 @@ import EventPlaceholder from "./EventPlaceholder";
 import Failure from "./Failure";
 import NoEvents from "./NoEvents";
 import TokenNotSet from "./TokenNotSet";
-
-const client = new CultureHQ({ apiHost: API_ROOT });
 
 export interface IAppProps {
   token: string;

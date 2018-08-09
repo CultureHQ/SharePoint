@@ -11,12 +11,12 @@ const formatTimestamp = (timestamp: string) => {
   const year = date.getFullYear();
 
   let hours = date.getHours();
+
+  const meridian = hours >= 12 ? "PM" : "AM";
   hours = hours > 12 ? hours - 12 : hours;
 
   let minutes = date.getMinutes();
   let minutesDisplay = minutes < 10 ? `0${minutes}` : minutes.toString();
-
-  const meridian = hours >= 12 ? "PM" : "AM";
 
   return `${month} ${day}, ${year}, ${hours}:${minutesDisplay} ${meridian}`;
 };
