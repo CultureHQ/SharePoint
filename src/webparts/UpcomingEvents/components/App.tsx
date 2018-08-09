@@ -1,5 +1,5 @@
 import * as React from "react";
-import client from "culturehq-client";
+import client from "@culturehq/client";
 
 import CHQEvent, { ICHQEvent } from "../lib/event";
 

@@ -5,54 +5,37 @@ import { ICHQEvent } from "../lib/event";
 
 import UserLink from "./UserLink";
 
-const EventTimestamps = ({ startsAt, endsAt }) => [
-  <dt key="start-key">Starts:</dt>,
-  <dd key="start-val">{startsAt}</dd>,
-  <dt key="end-key">Ends:</dt>,
-  <dd key="end-val">{endsAt}</dd>
-];
+// The rendering in this component is slightly stupid, especially in a React 16
+// world, but because of dependency restrictions with the SharePoint Framework
+// I can't use the latest React, so I can't return an array of elements or a
+// Fragment. Because I can't return any of these and the styles are dependent on
+// the `dl` being flat, I'm just checking things multiple times.
+const EventMetadata = ({ event }) => {
+  const { cancelledAt, cap, host, location } = event;
 
-const EventCancelled = () => [
-  <dt key="stat-key">Status:</dt>,
-  <dd key="stat-end">Cancelled</dd>
-];
-
-const EventCap = ({ remainingSpots }) => [
-  <dt key="spots-key">Spots:</dt>,
-  <dd key="spots-end">{remainingSpots}</dd>
-];
-
-const EventLocation = ({ location }) => [
-  <dt key="where-key">Where:</dt>,
-  <dd key="where-end">{location}</dd>
-];
-
-export interface IEventMetadataProps {
-  event: ICHQEvent;
-}
-
-export default class EventMetadata extends React.Component<IEventMetadataProps, {}> {
-  public render(): React.ReactElement<IEventMetadataProps> {
-    const { event } = this.props;
-
-    let containerClass = styles.eventRight;
-    if (event.cancelledAt) {
-      containerClass = `${containerClass} ${styles.eventRightCancelled}`;
-    }
-
-    return (
-      <div className={containerClass}>
-        <dl>
-          {event.cancelledAt ?
-            <EventCancelled key="cancelled" /> :
-            <EventTimestamps key="timestamps" startsAt={event.startsAtDisplay} endsAt={event.endsAtDisplay} />
-          }
-          {event.location && <EventLocation location={event.location} />}
-          <dt>Host:</dt>
-          <dd><UserLink user={event.host}>{event.host.name}</UserLink></dd>
-          {event.cap && <EventCap remainingSpots={event.remainingSpots} />}
-        </dl>
-      </div>
-    );
+  let containerClass = styles.eventRight;
+  if (cancelledAt) {
+    containerClass = `${containerClass} ${styles.eventRightCancelled}`;
   }
-}
+
+  return (
+    <div className={containerClass}>
+      <dl>
+        {cancelledAt && <dt>Status:</dt>}
+        {cancelledAt && <dd>Cancelled</dd>}
+        {!cancelledAt && <dt>Starts:</dt>}
+        {!cancelledAt && <dd>{event.startsAtDisplay}</dd>}
+        {!cancelledAt && <dt>Ends:</dt>}
+        {!cancelledAt && <dd>{event.endsAtDisplay}</dd>}
+        {location && <dt>Where:</dt>}
+        {location && <dd>{location}</dd>}
+        <dt>Host:</dt>
+        <dd><UserLink user={host}>{host.name}</UserLink></dd>
+        {cap && <dt>Spots:</dt>}
+        {cap && <dd>{event.remainingSpots}</dd>}
+      </dl>
+    </div>
+  );
+};
+
+export default EventMetadata;

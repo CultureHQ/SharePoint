@@ -46,6 +46,7 @@ $small-screen: 768px;
   font-size: 16px;
   margin: 8px;
   max-width: 900px;
+  overflow: hidden;
 
   & + & {
     margin-top: 16px;
@@ -56,25 +57,17 @@ $small-screen: 768px;
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
-
-  @media only screen and (min-width: $small-screen) {
-  }
 }
 
 .eventLeft {
   flex-grow: 1;
   flex-basis: 55%;
-
-  @media only screen and (min-width: $small-screen) {
-  }
 }
 
 .eventRight {
   flex-basis: 45%;
+  flex-grow: 1;
   min-width: 300px;
-
-  @media only screen and (min-width: $small-screen) {
-  }
 }
 
 .eventFooter {
@@ -178,19 +171,22 @@ $small-screen: 768px;
 }
 
 .eventRight dl {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 15px;
+  width: 100%;
 }
 
 .eventRight dt {
-  float: left;
-  width: 70px;
+  flex-basis: 25%;
 }
 
 .eventRight dd {
+  flex-basis: 75%;
   font-weight: 200;
-  margin-bottom: 20px;
-  width: 100%;
+  margin: 0 0 20px 0;
 }
 
 .eventRight a {

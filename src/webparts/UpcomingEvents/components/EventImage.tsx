@@ -19,26 +19,14 @@ const LiveBanner = () => (
   </span>
 );
 
-export interface IEventImageProps {
-  event: ICHQEvent;
-}
+const EventImage = ({ event: { imageUrl, href, sponsored, isLive, name } }) => (
+  <div className={styles.eventLeft}>
+    <a className={styles.eventLeftLink} style={{ backgroundImage: `url(${imageUrl})` }} href={href}>
+      {sponsored && <SponsoredRibbon />}
+      {isLive && <LiveBanner />}
+      <span className={styles.eventName}>{name}</span>
+    </a>
+  </div>
+);
 
-export default class EventImage extends React.Component<IEventImageProps, {}> {
-  public render(): React.ReactElement<IEventImageProps> {
-    const { event } = this.props;
-
-    return (
-      <div className={styles.eventLeft}>
-        <a
-          className={styles.eventLeftLink}
-          style={{ backgroundImage: `url(${event.imageUrl})` }}
-          href={event.href}
-        >
-          {event.sponsored && <SponsoredRibbon />}
-          {event.isLive && <LiveBanner />}
-          <span className={styles.eventName}>{event.name}</span>
-        </a>
-      </div>
-    );
-  }
-}
+export default EventImage;
