@@ -9,6 +9,15 @@ import { assert } from "chai";
 import EventMetadata from "../components/EventMetadata";
 import { buildEvent } from "./support";
 
+interface IMetadataList {
+  Status?: string;
+  Starts?: string;
+  Ends?: string;
+  Where?: string;
+  Host?: any;
+  Spots?: string;
+}
+
 describe("EventMetadata", () => {
   let renderer;
 
@@ -16,57 +25,56 @@ describe("EventMetadata", () => {
     renderer = TestUtils.createRenderer();
   });
 
-  it("should display cancelled status if the event is cancelled", () => {
-    const event = buildEvent({ cancelledAt: "2018-01-01" });
-    renderer.render(<EventMetadata event={event} />);
-
+  const getMetadataList = (event): IMetadataList => {
+    renderer.render(<EventMetadata event={buildEvent(event)} />);
     const result = renderer.getRenderOutput();
-    const cancelled = result.props.children.props.children[0].key;
-    assert.strictEqual(cancelled, "cancelled");
+
+    let { children } = result.props.children.props;
+    children = children.filter(child => child).map(child => child.props.children);
+
+    const metadata = {};
+    for (let idx = 0; idx < children.length; idx += 2) {
+      metadata[children[idx].slice(0, -1)] = children[idx + 1];
+    }
+
+    return metadata;
+  };
+
+  it("should display cancelled status if the event is cancelled", () => {
+    const { Status } = getMetadataList({ cancelledAt: "2018-01-01" });
+
+    assert.isDefined(Status);
   });
 
   it("should display timestamps when the event is not cancelled", () => {
-    const event = buildEvent({ cancelledAt: null });
-    renderer.render(<EventMetadata event={event} />);
+    const { Starts, Ends } = getMetadataList({ cancelledAt: null });
 
-    const result = renderer.getRenderOutput();
-    const timestamps = result.props.children.props.children[0].key;
-    assert.strictEqual(timestamps, "timestamps");
+    assert.isDefined(Starts);
+    assert.isDefined(Ends);
   });
 
   it("should display location when location is present", () => {
-    const event = buildEvent({ location: "CultureHQ Boston" });
-    renderer.render(<EventMetadata event={event} />);
+    const event = { location: "CultureHQ Boston" };
+    const { Where } = getMetadataList(event);
 
-    const result = renderer.getRenderOutput();
-    const location = result.props.children.props.children[1];
-    assert.notStrictEqual(location, null);
+    assert.strictEqual(Where, event.location);
   });
 
   it("should not display location when location is not present", () => {
-    const event = buildEvent({ location: null });
-    renderer.render(<EventMetadata event={event} />);
+    const { Where } = getMetadataList({ location: null });
 
-    const result = renderer.getRenderOutput();
-    const location = result.props.children.props.children[1];
-    assert.strictEqual(location, null);
+    assert.isUndefined(Where);
   });
 
   it("should display remaining spots only when capped", () => {
-    const event = buildEvent({ cap: 5 });
-    renderer.render(<EventMetadata event={event} />);
+    const { Spots } = getMetadataList({ cap: 5 });
 
-    const result = renderer.getRenderOutput();
-    const spots = result.props.children.props.children[4];
-    assert.notStrictEqual(spots, null);
+    assert.isDefined(Spots);
   });
 
   it("should not display remaining spots when not capped", () => {
-    const event = buildEvent({ cap: null });
-    renderer.render(<EventMetadata event={event} />);
+    const { Spots } = getMetadataList({ cap: null });
 
-    const result = renderer.getRenderOutput();
-    const spots = result.props.children.props.children[4];
-    assert.strictEqual(spots, null);
+    assert.isUndefined(Spots);
   });
 });
