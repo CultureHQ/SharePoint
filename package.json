@@ -15,7 +15,7 @@
     "url": "git+https://github.com/CultureHQ/SharePoint.git"
   },
   "author": "Kevin Deisz",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/CultureHQ/SharePoint/issues"
   },
