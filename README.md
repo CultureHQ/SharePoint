@@ -1,6 +1,6 @@
 # SharePoint
 
-[![Build Status](https://travis-ci.com/CultureHQ/SharePoint.svg?token=kQUiABmGkzyHdJdMnCnv&branch=master)](https://travis-ci.com/CultureHQ/SharePoint)
+[![Build Status](https://travis-ci.com/CultureHQ/SharePoint.svg?branch=master)](https://travis-ci.com/CultureHQ/SharePoint)
 
 CultureHQ's SharePoint add-in.
 
@@ -18,3 +18,11 @@ Run `npm run package` in the root directory. This will create two things:
 * `temp/deploy` - a directory containing the necessary async assets that will be requested by the package. These should be deployed to our `sharepoint.culturehq.com` CDN.
 
 They can then load the `Upcoming Events` webpart onto a SharePoint page and configure it appropriately.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/CultureHQ/SharePoint.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
