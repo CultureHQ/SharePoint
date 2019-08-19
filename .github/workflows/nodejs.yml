@@ -1,0 +1,15 @@
+name: Push
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node 6
+      uses: actions/setup-node@v1
+      with:
+        node-version: 6.x
+    - name: Install and test
+      run: |
+        npm install
+        npm test
