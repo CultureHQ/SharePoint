@@ -1,6 +1,6 @@
 # SharePoint
 
-[![Build Status](https://github.com/CultureHQ/SharePoint/workflows/Push/badge.svg)](https://github.com/CultureHQ/SharePoint/actions)
+[![Build Status](https://github.com/CultureHQ/SharePoint/workflows/Main/badge.svg)](https://github.com/CultureHQ/SharePoint/actions)
 
 CultureHQ's SharePoint add-in.
 
